@@ -1,0 +1,56 @@
+flowchart TB
+  Operators["Operators / browsers / SDKs / tools"]
+
+  subgraph Bus["Amber Bus"]
+    Discovery[".well-known discovery\nHTTP bootstrap"]
+    Catalogs["app, interface,\nfunctionality catalogs"]
+    Invoke["invoke/control plane\nHTTP during migration"]
+    Demand["DEMand runtime\nproduction native-client contract"]
+    Graph["application graph\nonboarding artifacts"]
+  end
+
+  subgraph GG["AIGateway / Gemma Gateway"]
+    Edge["gg-beast-edge\nC++ front door\nOps UI, Guardian routes,\nVeliai Media hosting"]
+    Manager["Veliai_Manager\nmanager truth, model state,\nhardware status"]
+    Process["gg-process-manager\nworker supervision"]
+    Chat["chat lane\n:11434 CUDA / RTX 3090"]
+    Embed["embed lane\n:11435 HIP / AMD"]
+    Fast["fast lane\n:11436 HIP / AMD"]
+    Memory["memory / retrieval\nQdrant, Mem0, Neo4j paths"]
+    Media["Veliai Media / Veliai-Vision\ncamera/audio ingest, NVR,\nobject/person/face/voice,\nreview, clips, training packs"]
+    Vision["vision / mmproj / NPU paths\nGemma vision, OpenCV,\nCoral/XDNA/Hailo planning"]
+  end
+
+  subgraph Apps["Amber applications"]
+    Guardian["Guardian\nhome policy, C2,\nGuardian tablets"]
+    HA["Home Assistant\nlive instance config,\nHA entities, devices,\nhouse telemetry"]
+    Actorr["Actorr\nIPTV/VOD/EPG,\nVelox media relay"]
+    Logger["SignalScope Logger\ncentral log correlation"]
+  end
+
+  Operators --> Edge
+  Operators --> Discovery
+  Discovery --> Catalogs --> Graph
+  Catalogs --> Invoke
+  Catalogs --> Demand
+
+  Edge --> Manager
+  Manager --> Process
+  Process --> Chat
+  Process --> Embed
+  Process --> Fast
+  Edge --> Memory
+  Edge --> Media
+  Media --> Vision
+
+  Guardian -->|"AI/RAG/tool calls"| Edge
+  Guardian -->|"bootstrap, desired state,\nupdate intent"| Demand
+  HA -->|"device/entity state,\ntelemetry, HA-bound actions"| Guardian
+  Actorr -->|"media intelligence edges"| Demand
+  Logger -->|"logger.log.ingest"| Demand
+
+  Guardian --> Logger
+  HA -->|"telemetry/log feed"| Logger
+  Actorr --> Logger
+  Edge --> Logger
+  Bus --> Logger

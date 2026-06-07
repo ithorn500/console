@@ -1,0 +1,74 @@
+flowchart LR
+  subgraph P1["Portfolio Epic 1<br/>Model Runtime and Router"]
+    LocalLanes["Local llama.cpp lanes<br/>:11434 / :11435 / :11436"]
+    OllamaCloud["Ollama Cloud lane<br/>:11437 seven aliases"]
+    VeliaiRouter["Veliai router / provider registry<br/>Ops control plane now<br/>future /api/veliai/* product APIs"]
+    CatalogTruth["One model catalog target<br/>local, Ollama Cloud, OpenAI, Gemini, future coding models"]
+  end
+
+  subgraph P2["Portfolio Epic 2<br/>Developer IDE"]
+    VSCodeFuture["VSCode / IDE surface<br/>route visibility, repo context, patch workflow"]
+    GitHubWorkflows["GitHub/dev workflows<br/>must consume Gateway APIs, not provider secrets directly"]
+  end
+
+  subgraph P3["Portfolio Epic 3<br/>Guardian Device and Ops"]
+    Guardian["Guardian<br/>C2, policy, tablets, wallpanels, device truth"]
+    Tablet["Android Guardian tablet<br/>built in /opt, released via /mnt/guardian"]
+    HA["Home Assistant<br/>device/entity telemetry consumed by Guardian"]
+  end
+
+  subgraph P4["Portfolio Epic 4<br/>Perception and Security"]
+    Media["Veliai Media<br/>camera/audio ingest, NVR, review, clips"]
+    Vision["Veliai-Vision<br/>object, person, face, voice, training packs"]
+    Security["Security workflow target<br/>evidence and action candidates"]
+  end
+
+  subgraph P5["Portfolio Epic 5<br/>Jarvis Presence"]
+    Jarvis["Jarvis tablet head<br/>wake, voice, visual presence"]
+    Head["Veliai Head runtime<br/>Filament/GLB/audio/morph validation"]
+  end
+
+  subgraph P6["Portfolio Epic 6<br/>Boundary Hygiene"]
+    Boundary["Epic 18 boundary repair<br/>memory integrity and provenance"]
+    BusFirst["Bus-first command surfaces<br/>Ops, reports, management panels"]
+    DirectAudit["Non-Bus direct-surface audit<br/>HA, Guardian, Logger, Actorr, Gateway"]
+    SupplierAdapters["Guardian-owned supplier migration<br/>HA integrations and BLE devices"]
+  end
+
+  subgraph Shared["Shared infrastructure"]
+    AmberBus["Amber Bus<br/>DEMand and native dataplane"]
+    Logger["Logger<br/>central log/audit sink"]
+    Actorr["Actorr<br/>independent entertainment/media domain"]
+  end
+
+  LocalLanes --> VeliaiRouter
+  OllamaCloud --> VeliaiRouter
+  VeliaiRouter --> CatalogTruth
+  CatalogTruth --> VSCodeFuture
+  CatalogTruth --> GitHubWorkflows
+
+  Guardian --> Tablet
+  Guardian --> HA
+  Guardian --> AmberBus
+  Guardian --> Logger
+
+  Media --> Vision
+  Vision --> Security
+  Security --> Guardian
+  Media --> Logger
+  Media --> AmberBus
+
+  Jarvis --> Tablet
+  Head --> Jarvis
+  Tablet --> Guardian
+
+  Boundary --> AmberBus
+  BusFirst --> AmberBus
+  DirectAudit --> Boundary
+  SupplierAdapters --> Guardian
+  HA --> DirectAudit
+  Guardian --> DirectAudit
+
+  Actorr --> AmberBus
+  Actorr --> Logger
+  AmberBus --> Logger

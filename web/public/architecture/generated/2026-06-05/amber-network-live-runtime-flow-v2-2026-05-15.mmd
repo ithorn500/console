@@ -1,0 +1,65 @@
+flowchart LR
+  Operators["Operators, browsers, SDKs, Codex/App experiments"]
+  VSCode["Future Veliai IDE / VSCode<br/>blocked behind Portfolio Epic 1 product APIs"]
+
+  subgraph GG["Gemma Gateway on gemma"]
+    Ops[":11430 Ops portal"]
+    Chat[":11434 chat<br/>Gemma 4 31B on CUDA / RTX 3090"]
+    Embed[":11435 embed<br/>BGE-M3 on HIP / AMD"]
+    Fast[":11436 fast<br/>small fast GGUF on HIP / AMD"]
+    Cloud[":11437 Ollama Cloud<br/>Gateway-owned browser UI and OpenAI-compatible API"]
+    Router["Veliai_Manager / Veliai router<br/>Ops control-plane catalog and route decisions"]
+    Media["Veliai Media / Veliai-Vision<br/>camera, NVR, review, training, perception"]
+    Memory["memory and retrieval<br/>Qdrant, Mem0 paths, knowledge stores"]
+  end
+
+  subgraph CloudModels["Ollama Cloud aliases on :11437"]
+    GemmaCloud["gemma-4-31b-cloud"]
+    QwenCoder["qwen3-coder-480b-cloud"]
+    GptOss["gpt-oss-120b-cloud"]
+    QwenVL["qwen3-vl-235b-cloud"]
+    DeepSeek["deepseek-v4-pro-cloud"]
+    Devstral["devstral-small-24b-cloud"]
+    Kimi["kimi-k2-6-cloud"]
+  end
+
+  subgraph Network["Amber Network services"]
+    Guardian["Guardian<br/>action authority, tablets, C2"]
+    Bus["Amber Bus<br/>DEMand, catalogs, native dataplane"]
+    Actorr["Actorr<br/>media/entertainment domain"]
+    Logger["Logger<br/>central audit sink"]
+    HA["Home Assistant<br/>device and telemetry fabric"]
+  end
+
+  Operators --> Ops
+  Operators --> Chat
+  Operators --> Fast
+  Operators --> Embed
+  Operators --> Cloud
+  VSCode -.->|future /api/veliai/* product APIs| Router
+
+  Cloud --> GemmaCloud
+  Cloud --> QwenCoder
+  Cloud --> GptOss
+  Cloud --> QwenVL
+  Cloud --> DeepSeek
+  Cloud --> Devstral
+  Cloud --> Kimi
+
+  Ops --> Router
+  Router --> Chat
+  Router --> Fast
+  Router --> Embed
+  Router --> Cloud
+  Media --> Logger
+  Memory --> Chat
+
+  Guardian --> Chat
+  Guardian --> Embed
+  Guardian --> Bus
+  Guardian --> Logger
+  Guardian --> HA
+  Actorr --> Bus
+  Actorr --> Logger
+  Bus --> Logger
+  Router --> Logger

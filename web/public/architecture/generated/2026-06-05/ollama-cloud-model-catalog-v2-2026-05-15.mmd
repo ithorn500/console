@@ -1,0 +1,29 @@
+flowchart TB
+  Lane[":11437 Gateway-owned Ollama Cloud lane<br/>Beast public listener"]
+  Internal["127.0.0.1:21437<br/>inline Ollama child"]
+  UI["Ollama browser UI<br/>model picker and settings shim"]
+  API["OpenAI-compatible API<br/>/v1/models, /v1/chat/completions, /v1/responses"]
+
+  Lane --> UI
+  Lane --> API
+  API --> Internal
+  UI --> SettingsPost["POST /api/v1/settings<br/>SelectedModel persists"]
+  SettingsPost --> Lane
+
+  subgraph Models["Approved remote aliases"]
+    M1["gemma-4-31b-cloud<br/>gemma4:31b-cloud"]
+    M2["qwen3-coder-480b-cloud<br/>qwen3-coder:480b-cloud"]
+    M3["gpt-oss-120b-cloud<br/>gpt-oss:120b-cloud"]
+    M4["qwen3-vl-235b-cloud<br/>qwen3-vl:235b-instruct-cloud"]
+    M5["deepseek-v4-pro-cloud<br/>deepseek-v4-pro:cloud"]
+    M6["devstral-small-24b-cloud<br/>devstral-small-2:24b-cloud"]
+    M7["kimi-k2-6-cloud<br/>kimi-k2.6:cloud"]
+  end
+
+  Internal --> M1
+  Internal --> M2
+  Internal --> M3
+  Internal --> M4
+  Internal --> M5
+  Internal --> M6
+  Internal --> M7

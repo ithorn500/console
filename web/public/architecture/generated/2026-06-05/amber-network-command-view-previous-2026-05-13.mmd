@@ -1,0 +1,27 @@
+flowchart LR
+  Command["/opt/AIGateway\nCommand Repo\nAIGateway / Gemma Gateway\ncross-repo docs hub"]
+
+  subgraph Mounts["/mnt sibling git roots"]
+    Guardian["/mnt/guardian\nGuardian Server\npolicy, C2, tablets,\nguardian_core"]
+    Bus["/mnt/amber-bus\nAmber Bus\ncatalog, graph, invoke,\nDEMand runtime"]
+    Actorr["/mnt/actorr\nActorr\nmedia semantic actuator,\nVelox relay/transcode"]
+    Logger["/mnt/logger\nSignalScope Logger\ncentral observability sink"]
+    HA["/mnt/homeassistant\nHome Assistant instance config\ndevice manager, entity model,\nhouse telemetry feed"]
+  end
+
+  Command -->|"coordinates docs and contracts"| Guardian
+  Command -->|"coordinates docs and contracts"| Bus
+  Command -->|"coordinates docs and contracts"| Actorr
+  Command -->|"coordinates docs and contracts"| Logger
+  Command -->|"coordinates docs and contracts"| HA
+
+  Guardian -->|"registers / consumes"| Bus
+  Actorr -->|"registers / consumes"| Bus
+  Logger -->|"registers ingest capability"| Bus
+  Command -->|"AIGateway manifest / functions"| Bus
+
+  Guardian -->|"structured logs"| Logger
+  Actorr -->|"structured logs"| Logger
+  HA -->|"HA telemetry/logs\nmostly via Guardian dependency"| Logger
+  Command -->|"structured logs"| Logger
+  Bus -->|"bus/runtime logs"| Logger

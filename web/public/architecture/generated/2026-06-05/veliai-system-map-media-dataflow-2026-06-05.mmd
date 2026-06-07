@@ -1,0 +1,38 @@
+flowchart LR
+  Camera["Camera/audio sources\nRTSP · RTMP · HTTP MJPEG · ONVIF"]
+  FastPath["Ingest fast path\ndecode once · latest frame buffer"]
+  Live["Live UI / birds-eye\nraw frame + overlay metadata"]
+  Motion["Motion gate\ncheap low-res change test"]
+  Sample["Perception sampler\nonly interesting frames"]
+  Object["Object path\nYOLO canonical classifier"]
+  Person["Person path\nhuman body detection"]
+  Face["Face path\ncrop · quality · recognition"]
+  Voice["Voice path\nwake/speech/speaker sample"]
+  Plate["Plate path\nvehicle plate candidate/OCR"]
+  Review["Review store\noperator correction"]
+  Packs["Training packs\nface · voice · object"]
+  Learning["Veliai-learning\nnightly dataset export"]
+  Store["/Data/Veliai\nclips · snapshots · manifests"]
+  Guardian["Guardian\noccupancy · alert · action candidate"]
+
+  Camera --> FastPath
+  FastPath --> Live
+  FastPath --> Motion
+  Motion --> Sample
+  Sample --> Object
+  Sample --> Person
+  Person --> Face
+  Sample --> Plate
+  Camera --> Voice
+  Object --> Review
+  Face --> Review
+  Voice --> Review
+  Plate --> Review
+  Review --> Packs
+  Review --> Store
+  Packs --> Learning
+  Learning --> Store
+  Review --> Guardian
+  Live -. overlay boxes .-> Object
+  Live -. overlay boxes .-> Person
+  Live -. overlay boxes .-> Face

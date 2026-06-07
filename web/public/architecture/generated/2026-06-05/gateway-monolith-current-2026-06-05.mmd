@@ -1,0 +1,47 @@
+flowchart TB
+  subgraph Clients["Clients"]
+    CLI["curl / OpenAI SDK\nchat · embed · fast"]
+    WebUI["Browser SPA\n/ui/llama"]
+    OpsUI["Ops browser\n:11430 /ui/ops\n:8000 legacy alias"]
+  end
+
+  subgraph Edge["gg-beast-edge (C++ Boost.Beast)"]
+    P1[":11438 direct chat compat -> :21434"]
+    P2[":11435 embed compat -> :21435"]
+    P3[":11436 fast compat -> :21436"]
+    OPS[":11430 ops portal\n:8000 legacy alias\n/api/v1/ops/* + /api/gg/ops/*"]
+    GUARD["/guardian/v1/* handler"]
+    STATIC["static UI handlers"]
+  end
+
+  subgraph VeliaiClient["veliai-client-edge (C++ Boost.Beast)"]
+    VF[":11434 Veliai client UI/API\nOpenAI-compatible routed chat"]
+  end
+
+  subgraph PM["gg-process-manager (C++)"]
+    REG["deploy/model-registry.yaml"]
+    SUP["worker supervisor\nspawn · health · restart"]
+    SOCK["/run/gg-pm.sock"]
+    STATUS["/opt/AIGateway/data/run/workers.json"]
+  end
+
+  subgraph Workers["llama-server workers"]
+    W1[":21434 chat\nGemma-4 31B · CUDA0"]
+    W2[":21435 embed\nBGE-M3 · HIP0"]
+    W3[":21436 fast\nGemma-3 4B · HIP0"]
+  end
+
+  subgraph Native["gemma_engine pybind module"]
+    ENG["Engine / ServerCore / Veliai_Manager\nexperimental inline path"]
+  end
+
+  Clients --> VeliaiClient
+  Clients --> Edge
+  VeliaiClient --> Edge
+  Edge --> Workers
+  Edge -.-> SOCK
+  PM --> REG
+  PM --> SUP
+  SUP --> Workers
+  SUP --> STATUS
+  Native -. experimental .-> Workers

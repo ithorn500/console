@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-06-05",
+  "diagrams": [
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 1,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-command-architecture-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-command-architecture-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 2,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-live-runtime-flow-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-live-runtime-flow-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 3,
+      "mmd": "docs/architecture/generated/2026-06-05/gateway-monolith-runtime-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/gateway-monolith-runtime-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 4,
+      "mmd": "docs/architecture/generated/2026-06-05/ollama-cloud-model-catalog-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/ollama-cloud-model-catalog-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 5,
+      "mmd": "docs/architecture/generated/2026-06-05/veliai-portfolio-system-map-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/veliai-portfolio-system-map-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 6,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-optimisation-map-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-optimisation-map-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-v2-2026-05-15.md",
+      "block": 7,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-service-ownership-v2-2026-05-15.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-service-ownership-v2-2026-05-15.png"
+    },
+    {
+      "source": "docs/architecture/gateway-monolith.md",
+      "block": 1,
+      "mmd": "docs/architecture/generated/2026-06-05/gateway-monolith-current-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/gateway-monolith-current-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/veliai-system-map.md",
+      "block": 1,
+      "mmd": "docs/architecture/generated/2026-06-05/veliai-system-map-modules-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/veliai-system-map-modules-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/veliai-system-map.md",
+      "block": 2,
+      "mmd": "docs/architecture/generated/2026-06-05/veliai-system-map-media-dataflow-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/veliai-system-map-media-dataflow-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/veliai-system-map.md",
+      "block": 3,
+      "mmd": "docs/architecture/generated/2026-06-05/veliai-system-map-recognition-paths-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/veliai-system-map-recognition-paths-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/veliai-system-map.md",
+      "block": 4,
+      "mmd": "docs/architecture/generated/2026-06-05/veliai-system-map-learning-loop-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/veliai-system-map-learning-loop-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/life-evidence-memory-fabric-architecture-2026-06-05.md",
+      "block": 1,
+      "mmd": "docs/architecture/generated/2026-06-05/life-evidence-memory-fabric-2026-06-05.mmd",
+      "png": "docs/architecture/generated/2026-06-05/life-evidence-memory-fabric-2026-06-05.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-2026-05-13.md",
+      "block": 1,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-command-view-previous-2026-05-13.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-command-view-previous-2026-05-13.png"
+    },
+    {
+      "source": "docs/architecture/amber-network-command-architecture-2026-05-13.md",
+      "block": 2,
+      "mmd": "docs/architecture/generated/2026-06-05/amber-network-runtime-demand-previous-2026-05-13.mmd",
+      "png": "docs/architecture/generated/2026-06-05/amber-network-runtime-demand-previous-2026-05-13.png"
+    }
+  ]
+}

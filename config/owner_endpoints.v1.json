@@ -1,0 +1,754 @@
+{
+  "schema": "amber.console.owner_endpoints.v1",
+  "owner": "amber-console",
+  "truth_rule": "Endpoints are owner-backed observations reached through Amber Bus UI contracts only. Amber Console cache/display snapshots are not authoritative.",
+  "endpoints": [
+    {
+      "id": "amber_bus_overview",
+      "label": "Amber Bus Management",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/management/overview",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_native_health",
+      "label": "Amber Bus Native Health",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/health",
+      "transport": "bus_get",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_apps",
+      "label": "Amber Bus Applications",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/apps",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_functionality",
+      "label": "Amber Bus Functionality Catalog",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/functionality",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_contracts",
+      "label": "Amber Bus Interface Contracts",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/contracts",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_consume_menu",
+      "label": "Amber Bus Consume Menu",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/consume/menu",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "spine"
+    },
+    {
+      "id": "amber_bus_client_health",
+      "label": "Amber Bus Client Health",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/client-health",
+      "transport": "bus_get",
+      "panel": "spine"
+    },
+    {
+      "id": "owner_action_readiness",
+      "label": "Owner Action Readiness",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/owner-action-readiness",
+      "transport": "bus_get",
+      "panel": "programme"
+    },
+    {
+      "id": "e31_native_spine_status",
+      "label": "E31 Native Spine Status",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/e31/native-spine/status",
+      "transport": "bus_get",
+      "panel": "e31"
+    },
+    {
+      "id": "e31_python_retirement_status",
+      "label": "E31 Python Retirement",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/e31/python-retirement/status",
+      "transport": "bus_get",
+      "panel": "e31"
+    },
+    {
+      "id": "memorr_e32_status",
+      "label": "E32 Memorr Native Authority",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/e32/status",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "memorr"
+    },
+    {
+      "id": "e31_modules_status",
+      "label": "E31 Native Modules",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/modules/status",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "e31"
+    },
+    {
+      "id": "e31_native_traffic_status",
+      "label": "E31 Native Traffic Freshness",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/native-traffic/status",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "e31"
+    },
+    {
+      "id": "e31_central_io_status",
+      "label": "E31 Central_IO Pressure",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/central-io/status",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "e31"
+    },
+    {
+      "id": "e31_concierge_internet_status",
+      "label": "E31 Concierge Internet",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/concierge/internet/status",
+      "transport": "bus_get",
+      "overview_mode": "deferred",
+      "panel": "e31"
+    },
+    {
+      "id": "mail_flow",
+      "label": "Epic 27 Mail Flow",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/console/mail-flow",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_l9_status",
+      "label": "Epic 27 L9 Status",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/l9/status",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_windows_runtime_proof",
+      "label": "Epic 27 Windows Proof",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/windows-runtime/proof",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_windows_runtime_readiness",
+      "label": "Epic 27 Windows Readiness",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/windows-runtime/readiness",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_windows_runtime_handoff",
+      "label": "Epic 27 Windows Handoff",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/windows-runtime/handoff",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_operator_promotion_approval",
+      "label": "Epic 27 Operator Approval",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/operator-promotion/approval",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_mime_attachment_proof_retry",
+      "label": "Epic 27 MIME Proof Retry",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/mime-attachment/proof/retry",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_smtp_text_control_proof_retry",
+      "label": "Epic 27 SMTP Text Control",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/smtp-text-control/proof/retry",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_exchange_prx5_triage",
+      "label": "Epic 27 Exchange PRX5 Triage",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/exchange-prx5/triage",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "epic27_exchange_prx5_evidence",
+      "label": "Epic 27 Exchange PRX5 Evidence",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/epic27/exchange-prx5/evidence",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "concierge_email",
+      "label": "Concierge Email Ingress",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/concierge/email/status",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "concierge_mime_parity",
+      "label": "Concierge MIME Parity",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/concierge/email/mime-parity/proof",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "concierge_lifecycle_drill",
+      "label": "Concierge Lifecycle Drill",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/concierge/email/lifecycle/drill",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "mail_quarantine_review",
+      "label": "Mail Quarantine Review",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/concierge/email/quarantine/review",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "exchange_connector_status",
+      "label": "Exchange Connector",
+      "owner": "amber-bus-exchange-connector",
+      "url": "http://amber-bus.amber.com:8080/api/exchange/connector/status",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "exchange_smtp_transport_diagnostic",
+      "label": "Exchange SMTP Transport",
+      "owner": "amber-bus-exchange-connector",
+      "url": "http://amber-bus.amber.com:8080/api/exchange/connector/smtp/transport-diagnostic",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "exchange_pim_reader",
+      "label": "Exchange PIM Reader",
+      "owner": "amber-bus-exchange-connector",
+      "url": "http://amber-bus.amber.com:8080/api/exchange/connector/ews/pim/status",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "veliai_queue",
+      "label": "Veliai Queue",
+      "owner": "amber-bus/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/veliai/queue/summary?limit=5",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "veliai_artifacts",
+      "label": "Veliai Artifacts",
+      "owner": "amber-bus/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/veliai/queue/artifacts/summary?limit=5",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "veliai_brain_edge",
+      "label": "Veliai Brain Edge",
+      "owner": "amber-bus/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/veliai/brain-edge/summary?limit=8",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "lsb_state_status",
+      "label": "LSB Cognitive State",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/lsb/state/status",
+      "transport": "bus_get",
+      "panel": "spine"
+    },
+    {
+      "id": "lsb_plan_status",
+      "label": "LSB / NeuFab Planner",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/lsb/plan/status",
+      "transport": "bus_get",
+      "panel": "spine"
+    },
+    {
+      "id": "memorr_archive",
+      "label": "Memorr Archive Status",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/archive/status",
+      "transport": "bus_get",
+      "panel": "evidence_chain"
+    },
+    {
+      "id": "memorr_exchange_backfill",
+      "label": "Memorr Exchange Backfill",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/exchange/backfill/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_exchange_pim_context",
+      "label": "Memorr Exchange PIM Context",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/exchange/pim/context/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_exchange_l9_soak",
+      "label": "Memorr Exchange L9 Soak",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/exchange/l9/soak/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_formulated_memory",
+      "label": "Memorr Formulated Memory",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/formulation/recall",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_email_timeline",
+      "label": "Memorr Email Timeline",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/email/timeline/search",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_authority_mdbx",
+      "label": "Memorr Authority MDBX",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/authority/mdbx/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_life_photo_sync",
+      "label": "Memorr Life Photo Sync",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/life/photo-sync/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_veliai_id_photos",
+      "label": "Memorr Veliai-ID Photos",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/life/photos/veliai-id/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_mirror",
+      "label": "Memorr Processing Status",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/processing/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_source",
+      "label": "Memorr Sleep Status",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/sleep/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "adguard_status",
+      "label": "AdGuard Runtime Status",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.status.get",
+      "transport": "bus_invoke",
+      "panel": "perimeter"
+    },
+    {
+      "id": "adguard_stats",
+      "label": "AdGuard DNS Stats",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.stats.get",
+      "transport": "bus_invoke",
+      "invoke_body_base64": "eyJyZWNlbnQiOiIzNjAwMDAwIn0=",
+      "overview_mode": "deferred",
+      "panel": "perimeter"
+    },
+    {
+      "id": "adguard_querylog",
+      "label": "AdGuard Query Log",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.querylog.search",
+      "transport": "bus_invoke",
+      "invoke_body_base64": "eyJsaW1pdCI6MTB9",
+      "overview_mode": "deferred",
+      "panel": "perimeter"
+    },
+    {
+      "id": "adguard_clients",
+      "label": "AdGuard Clients",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.clients.list",
+      "transport": "bus_invoke",
+      "overview_mode": "deferred",
+      "panel": "perimeter"
+    },
+    {
+      "id": "adguard_filtering",
+      "label": "AdGuard Filtering Status",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.filtering.status",
+      "transport": "bus_invoke",
+      "panel": "perimeter"
+    },
+    {
+      "id": "adguard_security",
+      "label": "AdGuard Security Summary",
+      "owner": "adguardhome",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/adguard.security.summary",
+      "transport": "bus_invoke",
+      "invoke_body_base64": "eyJyZWNlbnQiOiIzNjAwMDAwIn0=",
+      "overview_mode": "deferred",
+      "panel": "perimeter"
+    },
+    {
+      "id": "guardian_c2_snapshot",
+      "label": "Guardian C2 Snapshot",
+      "owner": "guardian",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/guardian.c2.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_method": "GET",
+      "invoke_path": "/api/guardian/guardian_c2_snapshot",
+      "overview_mode": "deferred",
+      "panel": "guardian"
+    },
+    {
+      "id": "guardian_lawn_vision",
+      "label": "Guardian Lawn Vision",
+      "owner": "guardian",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/guardian.c2.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_method": "GET",
+      "invoke_path": "/api/states/sensor.lawn_poo_detection",
+      "panel": "guardian"
+    },
+    {
+      "id": "guardian_lawn_outline",
+      "label": "Guardian Lawn Boundary",
+      "owner": "guardian",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/guardian.c2.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_method": "GET",
+      "invoke_path": "/api/guardian/lawn_outline_editor_get",
+      "panel": "guardian"
+    },
+    {
+      "id": "actorr_operator_snapshot",
+      "label": "Actorr Operator Snapshot",
+      "owner": "actorr",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/actorr.c2.operator_snapshot",
+      "transport": "bus_invoke",
+      "panel": "actorr",
+      "overview_mode": "deferred",
+      "overview_reason": "Actorr operator snapshot is live through Bus but kept detail-only because the owner snapshot is a heavier media-pipeline payload."
+    },
+    {
+      "id": "actorr_client_bootstrap",
+      "label": "Actorr Client Bootstrap",
+      "owner": "actorr",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/actorr.portal.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_method": "GET",
+      "invoke_path": "/api/client/status",
+      "panel": "actorr"
+    },
+    {
+      "id": "logger_ops_dashboard",
+      "label": "Logger Ops Dashboard",
+      "owner": "logger",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/logger.ops.dashboard_snapshot",
+      "transport": "bus_invoke",
+      "invoke_action": "snapshot",
+      "invoke_minutes": "60",
+      "panel": "logger"
+    },
+    {
+      "id": "logger_correlation_query",
+      "label": "Logger Correlation Query",
+      "owner": "logger",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/logger.correlation.query?interface_id=logger.api.correlation.query.v1",
+      "transport": "bus_invoke",
+      "invoke_body_base64": "eyJ3aW5kb3dfbWludXRlcyI6NX0=",
+      "overview_mode": "deferred",
+      "panel": "logger"
+    },
+    {
+      "id": "logger_evidence_proof",
+      "label": "Logger Evidence Proof",
+      "owner": "logger",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/logger.evidence.proof?interface_id=logger.api.evidence.query.v1",
+      "transport": "bus_invoke",
+      "invoke_body_base64": "eyJpbmNsdWRlX2V2ZW50cyI6ZmFsc2UsImxpbWl0Ijo1fQ==",
+      "overview_mode": "deferred",
+      "panel": "logger"
+    },
+    {
+      "id": "gemma_ops_state",
+      "label": "Gemma Ops State",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/state",
+      "panel": "gemma"
+    },
+    {
+      "id": "gemma_lanes",
+      "label": "Gemma Lanes",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "gg_ops",
+      "invoke_method": "GET",
+      "invoke_path": "/lanes",
+      "panel": "gemma"
+    },
+    {
+      "id": "gemma_hardware",
+      "label": "Gemma Hardware",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "gg_ops",
+      "invoke_method": "GET",
+      "invoke_path": "/veliai/hardware",
+      "panel": "gemma"
+    },
+    {
+      "id": "gemma_activity",
+      "label": "Gemma Activity",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/activity",
+      "panel": "gemma"
+    },
+    {
+      "id": "neufab_status",
+      "label": "NeuFab Corpus Callosum",
+      "owner": "gemma-gateway/neufab",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/neufab/status",
+      "panel": "neufab"
+    },
+    {
+      "id": "neufab_feedback",
+      "label": "NeuFab Feedback",
+      "owner": "gemma-gateway/neufab",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/neufab/feedback/status",
+      "panel": "neufab"
+    },
+    {
+      "id": "neufab_perception",
+      "label": "NeuFab Perception Semantics",
+      "owner": "gemma-gateway/neufab",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/neufab/perception/status",
+      "panel": "neufab"
+    },
+    {
+      "id": "veliai_providers",
+      "label": "Veliai Provider Router",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/veliai/providers",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "veliai_usage",
+      "label": "Veliai Usage",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/veliai/usage",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "veliai_route_plan_memory",
+      "label": "Veliai Memory Route Dry Run",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "POST",
+      "invoke_path": "/veliai/route",
+      "invoke_body_base64": "eyJyZXF1ZXN0X2lkIjoiZXBpYzI2LWNvbnNvbGUtbWVtb3J5LWZvcm11bGF0ZS1kcnktcnVuIiwiY2FwYWJpbGl0eSI6Im1lbW9yeS5mb3JtdWxhdGUiLCJyb3V0ZV9wcm9maWxlIjoibWVtb3J5LmZvcm11bGF0ZSIsInByaXZhY3kiOiJwcml2YXRlX3NlbnNpdGl2ZSIsImNvbnRlbnRfdHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsImlucHV0X3Rva2VucyI6OTAwMCwicm91dGVfY29uc3RyYWludHMiOnsibG9jYWxfb25seSI6dHJ1ZSwibWluX2NvbnRleHRfdG9rZW5zIjozMjc2OH19",
+      "overview_mode": "deferred",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "veliai_route_plan_summary",
+      "label": "Veliai Public Summary Dry Run",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "POST",
+      "invoke_path": "/veliai/route",
+      "invoke_body_base64": "eyJyZXF1ZXN0X2lkIjoiZXBpYzI2LWNvbnNvbGUtc3VtbWFyeS1wdWJsaWMtZHJ5LXJ1biIsImNhcGFiaWxpdHkiOiJzdW1tYXJpemUiLCJyb3V0ZV9wcm9maWxlIjoic3RyYXRlZ3kuZmFzdCIsInByaXZhY3kiOiJwdWJsaWMiLCJjb250ZW50X3R5cGUiOiJ0ZXh0L3BsYWluIiwiaW5wdXRfdG9rZW5zIjoxODAwLCJzcGVlZF9yZXF1aXJlbWVudCI6ImZhc3QiLCJyb3V0ZV9jb25zdHJhaW50cyI6eyJhbGxvd19jbG91ZCI6dHJ1ZSwibWluX2NvbnRleHRfdG9rZW5zIjo4MTkyLCJtYXhfbGF0ZW5jeV9tcyI6MTIwMH19",
+      "overview_mode": "deferred",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "veliai_route_plan_code",
+      "label": "Veliai Code Agent Dry Run",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "POST",
+      "invoke_path": "/veliai/route",
+      "invoke_body_base64": "eyJyZXF1ZXN0X2lkIjoiZXBpYzI2LWNvbnNvbGUtY29kZS1hZ2VudC1kcnktcnVuIiwiY2FwYWJpbGl0eSI6ImNvZGUiLCJyb3V0ZV9wcm9maWxlIjoiY29kZS5hZ2VudCIsInByaXZhY3kiOiJleHRlcm5hbF9jb2RlIiwiY29udGVudF90eXBlIjoidGV4dC9wbGFpbiIsImlucHV0X3Rva2VucyI6MzIwMDAsInF1YWxpdHlfcHJvZmlsZSI6ImhpZ2giLCJyb3V0ZV9jb25zdHJhaW50cyI6eyJhbGxvd19jbG91ZCI6dHJ1ZSwibWluX2NvbnRleHRfdG9rZW5zIjoxMzEwNzIsIm1heF9jb3N0X3VzZCI6MS41fX0=",
+      "overview_mode": "deferred",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "veliai_route_plan_long_context",
+      "label": "Veliai Long Context Dry Run",
+      "owner": "gemma-gateway/veliai",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "POST",
+      "invoke_path": "/veliai/route",
+      "invoke_body_base64": "eyJyZXF1ZXN0X2lkIjoiZXBpYzI2LWNvbnNvbGUtbG9uZy1jb250ZXh0LWRyeS1ydW4iLCJjYXBhYmlsaXR5IjoiaGlnaF9jb250ZXh0X29uZV9zaG90Iiwicm91dGVfcHJvZmlsZSI6Im1lbW9yeS5oaWdoX2NvbnRleHQiLCJwcml2YWN5IjoicHVibGljIiwiY29udGVudF90eXBlIjoiYXBwbGljYXRpb24vcGRmIiwiaW5wdXRfdG9rZW5zIjoxOTAwMDAsInF1YWxpdHlfcHJvZmlsZSI6ImFjY3VyYXRlIiwicm91dGVfY29uc3RyYWludHMiOnsiYWxsb3dfY2xvdWQiOnRydWUsIm1pbl9jb250ZXh0X3Rva2VucyI6MjYyMTQ0LCJtYXhfY29zdF91c2QiOjIuMH19",
+      "overview_mode": "deferred",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "gemma_models",
+      "label": "Gemma Models",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/models",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "gemma_cloud_health",
+      "label": "Gemma Cloud Health",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/cloud/health",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "gemma_cloud_cost",
+      "label": "Gemma Cloud Cost",
+      "owner": "gemma-gateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/cloud/cost",
+      "panel": "veliai_router"
+    },
+    {
+      "id": "programme_epics",
+      "label": "Programme Epics",
+      "owner": "aigateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/live-master-board",
+      "panel": "programme"
+    },
+    {
+      "id": "epic26_tasks",
+      "label": "Epic 26 Tasks",
+      "owner": "aigateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/live-master-board",
+      "panel": "programme"
+    },
+    {
+      "id": "epic26_defogs",
+      "label": "Epic 26 De-Fogs",
+      "owner": "aigateway",
+      "url": "http://amber-bus.amber.com:8080/api/bus/invoke/aigateway.ops.ui.invoke",
+      "transport": "bus_invoke",
+      "invoke_surface": "ops",
+      "invoke_method": "GET",
+      "invoke_path": "/live-master-board",
+      "panel": "programme"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+flowchart TB
+  subgraph Clients["Clients and operator surfaces"]
+    OpenAI["OpenAI/Ollama-compatible clients<br/>curl, SDKs, Codex/App experiments"]
+    LlamaUI["llama.cpp / Gateway UI<br/>browser SPA static JS/CSS"]
+    OpsUI["Ops UI<br/>browser on :11430"]
+    OllamaUI["Ollama browser UI<br/>served by Beast on :11437"]
+    GuardianClients["Guardian server/tablets<br/>C2, policy, device workflows"]
+  end
+
+  subgraph Beast["gg-beast-edge<br/>C++ Boost.Beast monolith front door"]
+    ChatCompat[":11434 chat compat<br/>X-AIGateway-Compat-Lane=chat"]
+    EmbedCompat[":11435 embed compat<br/>X-AIGateway-Compat-Lane=embed"]
+    FastCompat[":11436 fast compat<br/>X-AIGateway-Compat-Lane=fast"]
+    CloudCompat[":11437 Ollama Cloud<br/>OpenAI-compatible API + Ollama UI shims"]
+    OpsPortal[":11430 Ops portal<br/>/api/v1/ops/* and /api/gg/ops/*"]
+    GuardianRoutes["/guardian/v1/*<br/>Guardian handler"]
+    MediaRoutes["Veliai Media routes<br/>streams, review, training, NVR"]
+    StaticRoutes["static UI handlers<br/>/ui/ops, /ui/llama, Ollama UI bundle"]
+  end
+
+  subgraph ProcessManager["gg-process-manager"]
+    ModelRegistry["deploy/model-registry.yaml<br/>local model/device/mmproj truth"]
+    Supervisor["worker supervisor<br/>spawn, health, restart"]
+    WorkersJson["data/run/workers.json<br/>live local worker truth"]
+    PmSocket["/run/gg-pm.sock<br/>control socket"]
+  end
+
+  subgraph LocalWorkers["Local llama.cpp workers"]
+    ChatWorker[":21434 chat worker<br/>Gemma 4 31B<br/>CUDA0 / RTX 3090"]
+    EmbedWorker[":21435 embed worker<br/>BGE-M3<br/>HIP0 / AMD lane"]
+    FastWorker[":21436 fast worker<br/>small fast GGUF<br/>HIP0 / AMD lane"]
+  end
+
+  subgraph OllamaCloud["Inline-supervised Ollama Cloud path"]
+    OllamaChild["repo-built Ollama child<br/>127.0.0.1:21437<br/>supervised by Beast"]
+    CloudRegistry["Gateway cloud catalog<br/>seven aliases, remote models only"]
+    CloudUIState["Ollama UI settings shim<br/>persists SelectedModel"]
+  end
+
+  subgraph NativeIntelligence["Native / experimental intelligence"]
+    GemmaEngine["gemma_engine / ServerCore / Veliai_Manager<br/>native symbol, not a second gateway"]
+    ProviderRegistry["deploy/veliai-provider-registry.json<br/>local + Ollama Cloud provider truth"]
+    Router["veliai_router.hpp<br/>Ops route-decision control surface"]
+  end
+
+  OpenAI --> ChatCompat
+  OpenAI --> EmbedCompat
+  OpenAI --> FastCompat
+  OpenAI --> CloudCompat
+  LlamaUI --> StaticRoutes
+  OpsUI --> OpsPortal
+  OllamaUI --> CloudCompat
+  GuardianClients --> GuardianRoutes
+
+  ChatCompat --> ChatWorker
+  EmbedCompat --> EmbedWorker
+  FastCompat --> FastWorker
+  CloudCompat --> OllamaChild
+  CloudCompat --> CloudRegistry
+  CloudCompat --> CloudUIState
+
+  OpsPortal --> Router
+  OpsPortal --> ProviderRegistry
+  OpsPortal --> PmSocket
+  GuardianRoutes --> ChatWorker
+  GuardianRoutes --> EmbedWorker
+  MediaRoutes --> StaticRoutes
+
+  ModelRegistry --> Supervisor
+  Supervisor --> ChatWorker
+  Supervisor --> EmbedWorker
+  Supervisor --> FastWorker
+  Supervisor --> WorkersJson
+  PmSocket --> Supervisor
+
+  GemmaEngine -.->|native/experimental| ProviderRegistry
+  Router --> ProviderRegistry
+  Router --> WorkersJson
+  ProviderRegistry --> CloudRegistry

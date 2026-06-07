@@ -1,0 +1,49 @@
+# Build output
+/build/
+/build-*/
+/build-dev/
+/cmake-build-*/
+/dist/
+
+# Web dependencies and generated bundles
+/web/node_modules/
+/web/dist/
+/web/.vite/
+
+# Test and tooling caches
+/.cache/
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+/.playwright/
+coverage/
+
+# Python and editor noise
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Native artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Runtime/local state
+/runtime/
+/logs/
+*.log
+*.pid
+
+# Local secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx

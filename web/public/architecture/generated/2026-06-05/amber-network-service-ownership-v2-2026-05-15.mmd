@@ -1,0 +1,22 @@
+flowchart TB
+  subgraph Source["Local mounted source/config roots"]
+    GSrc["/mnt/guardian"]
+    BSrc["/mnt/amber-bus"]
+    LSrc["/mnt/logger"]
+    ASrc["/mnt/actorr"]
+    HASrc["/mnt/homeassistant"]
+  end
+
+  subgraph Hosts["Owning runtime hosts"]
+    GHost["guardian.amber.com<br/>/opt/guardian<br/>guardian-apps, guardian-trigger, guardian-c2"]
+    BHost["amber-bus.amber.com<br/>/opt/amber-bus<br/>amber-bus-fastio, amber-bus, native, portal, log-forwarder"]
+    LHost["logger.amber.com<br/>/opt/logger<br/>logger or logger-native, db-health timer"]
+    AHost["actorr.amber.com<br/>/opt/actorr<br/>actorr, catalogd, epgd, veiloxd, veloxd, transcoders"]
+    HAHost["homeassistant.local<br/>/home/hassist/homeassistant<br/>Home Assistant container or HA core"]
+  end
+
+  GSrc -.->|deploy/restart remotely| GHost
+  BSrc -.->|deploy/restart remotely| BHost
+  LSrc -.->|deploy/restart remotely| LHost
+  ASrc -.->|deploy/restart remotely| AHost
+  HASrc -.->|reload/restart HA-bound services only| HAHost

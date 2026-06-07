@@ -1,0 +1,39 @@
+flowchart TB
+  Command["/opt/AIGateway<br/>Command Repo<br/>Gemma Gateway appliance<br/>cross-repo docs and baseline authority"]
+
+  subgraph Gateway["Gateway runtime owned in /opt/AIGateway"]
+    Beast["gg-beast-edge<br/>C++ monolith front door"]
+    PM["gg-process-manager<br/>local worker supervisor"]
+    Registry["deploy/model-registry.yaml<br/>local lane/device truth"]
+    ProviderRegistry["deploy/veliai-provider-registry.json<br/>provider/catalog truth"]
+    Android["android/guardian-tablet<br/>Guardian tablet APK source"]
+    Baseline["Version 9 baseline artifacts<br/>docs/amber-network/baselines/..."]
+  end
+
+  subgraph Mounts["/mnt sibling git roots, not a monorepo"]
+    Guardian["/mnt/guardian<br/>Guardian Server<br/>policy, C2, devices, tablet artifacts"]
+    Bus["/mnt/amber-bus<br/>Amber Bus<br/>discovery, catalogs, DEMand, native dataplane"]
+    Actorr["/mnt/actorr<br/>Actorr<br/>entertainment, IPTV, VOD, Velox"]
+    Logger["/mnt/logger<br/>SignalScope Logger<br/>observability and audit sink"]
+    HA["/mnt/homeassistant<br/>Home Assistant live config<br/>device/entity telemetry boundary"]
+  end
+
+  Command --> Beast
+  Command --> PM
+  Command --> Registry
+  Command --> ProviderRegistry
+  Command --> Android
+  Command --> Baseline
+
+  Command -.->|coordinates docs, baselines, contracts| Guardian
+  Command -.->|coordinates docs, baselines, contracts| Bus
+  Command -.->|coordinates docs, baselines, contracts| Actorr
+  Command -.->|coordinates docs, baselines, contracts| Logger
+  Command -.->|coordinates docs, baselines, contracts| HA
+
+  Android -->|"release APK only"| Guardian
+  Guardian -->|"device/entity reads and HA-bound actions"| HA
+  Guardian -->|"registers and consumes capabilities"| Bus
+  Actorr -->|"future integration/catalog edges"| Bus
+  Logger -->|"logger.log.ingest and fleet logs"| Bus
+  Command -->|"Gateway manifest and route/catalog awareness"| Bus

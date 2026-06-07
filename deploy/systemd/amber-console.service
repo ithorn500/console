@@ -1,0 +1,17 @@
+[Unit]
+Description=Amber Console observability UI
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/console
+ExecStart=/opt/console/build/amber-console /opt/console/web/dist /opt/console/config/owner_endpoints.v1.json
+Restart=on-failure
+RestartSec=3
+Environment=AMBER_CONSOLE_BIND=0.0.0.0
+Environment=AMBER_CONSOLE_PORT=80
+Environment=AMBER_CONSOLE_EXTRA_PORTS=8095
+
+[Install]
+WantedBy=multi-user.target

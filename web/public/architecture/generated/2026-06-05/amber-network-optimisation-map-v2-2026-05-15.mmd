@@ -1,0 +1,49 @@
+flowchart TB
+  Contract["Non-regression contract<br/>preserve functionality and performance<br/>remove wasted work only"]
+
+  subgraph Hotspots["Observed high-churn paths"]
+    MediaPayloads["Veliai Media UI/status<br/>large refreshes, inline thumbnails, frequent polls"]
+    TabletSync["Guardian tablet sync<br/>multiple sequential fetches"]
+    GuardianWrites["Guardian tablet manager writes<br/>full public-doc rewrites"]
+    CentralLog["Gateway central_log<br/>request-path rotations and full reads"]
+    BusRetention["Amber Bus native dataplane<br/>queue retention scans and traffic logs"]
+    CatalogSpine["Portfolio Epic 1 catalog<br/>one shared model/router API target"]
+  end
+
+  subgraph AdditiveFixes["Additive optimisation slices"]
+    SummaryDelta["summary/delta APIs<br/>detail endpoints stay"]
+    BundledSync["guardian.tablet.sync.fetch<br/>old function IDs remain"]
+    DebouncedWrites["dirty-bit + debounce writes<br/>atomic grouped publish"]
+    AsyncLog["append-only JSONL + async spooler<br/>batched Bus shipping"]
+    IndexedRetention["topic retention indexes<br/>traffic-log rotation"]
+    ProductAPIs["stable /api/veliai/* product APIs<br/>models, route-plan, chat, context, metrics"]
+  end
+
+  subgraph Measurements["Required evidence"]
+    Payload["payload size"]
+    Latency["latency and UI render cost"]
+    CPU["CPU, memory, and filesystem churn"]
+    Queue["queue depth, drops, write rate"]
+    Lane["GPU lane use and route/provider behavior"]
+  end
+
+  Contract --> MediaPayloads
+  Contract --> TabletSync
+  Contract --> GuardianWrites
+  Contract --> CentralLog
+  Contract --> BusRetention
+  Contract --> CatalogSpine
+
+  MediaPayloads --> SummaryDelta
+  TabletSync --> BundledSync
+  GuardianWrites --> DebouncedWrites
+  CentralLog --> AsyncLog
+  BusRetention --> IndexedRetention
+  CatalogSpine --> ProductAPIs
+
+  SummaryDelta --> Payload
+  BundledSync --> Latency
+  DebouncedWrites --> CPU
+  AsyncLog --> Queue
+  IndexedRetention --> Queue
+  ProductAPIs --> Lane

@@ -1,0 +1,98 @@
+flowchart LR
+  subgraph Feeds["Life Evidence Feeds"]
+    direction TB
+    F1["1. Photos / Videos<br/>/Data / Vault / iCloud / Amber Life"]
+    F2["2. Amber Life Journal<br/>manual entries + suggestions"]
+    F3["3. Email<br/>threads, senders, attachments"]
+    F4["4. Calendar / PIM<br/>meetings, trips, events"]
+    F5["5. Documents<br/>bills, statements, PDFs"]
+    F6["6. OCR / Text Extraction<br/>PDF, image, scanned docs"]
+    F7["7. Presence / Devices<br/>iCloud, Amber Life, WiFi, HA"]
+    F8["8. Guardian Events<br/>locks, doors, devices, policy"]
+    F9["9. Veliai Observations<br/>cameras, faces, voice, plates"]
+    F10["10. Home Assistant<br/>sensors, location, state"]
+  end
+
+  subgraph Bus["Amber Bus + LSB Reflex Layer"]
+    direction TB
+    AB["Amber Bus<br/>contracts, invokes,<br/>events, UI data plane"]
+    LSB["LSB<br/>context flags /<br/>reflex signals<br/>not the worker"]
+    CON["Concierge<br/>cloud providers,<br/>email, Apple/iCloud"]
+  end
+
+  subgraph NeuFAB["NeuFAB Brain Fabric"]
+    direction TB
+    VID["Veliai-ID<br/>face detection,<br/>embeddings,<br/>identity match"]
+    VEL["Veliai<br/>scene understanding +<br/>language synthesis"]
+    VP["Voice Print<br/>speaker identity<br/>evidence"]
+    OCR["OCR /<br/>semantic classifiers"]
+  end
+
+  subgraph Memorr["Memorr: Source of Truth + Memory Engine"]
+    direction TB
+    Intake["Evidence Intake<br/>owner refs only"]
+    Ledger["MDBX Evidence Ledger<br/>photos, faces, exif, email, docs,<br/>calendar, presence, journal"]
+    Identity["Canonical Identity<br/>Iain, Sarah, Finn, Josh,<br/>friends, family, unknowns"]
+    Work["Lazy Work Queues<br/>bounded batches,<br/>day/night policy"]
+    Correlator["Memory Correlator<br/>who + where + when + what + why"]
+    Formation["Life Memory Formation Engine<br/>scene last, context first"]
+    Store["Authority Memory Store<br/>.memories, relationship hints,<br/>profile timelines"]
+  end
+
+  subgraph Surfaces["Produced Memories + Surfaces"]
+    direction TB
+    S1["Life Memories<br/>holiday, party, visit,<br/>family moment"]
+    S2["People Memories<br/>faces, voice, relationships,<br/>presence"]
+    S3["Place Memories<br/>home, Hat Creek,<br/>Guildford, Frimley"]
+    S4["Admin Memories<br/>bills, statements,<br/>disputes, renewals"]
+    S5["Journal Suggestions<br/>recent moments<br/>to write about"]
+    S6["Guardian Context<br/>home/away, device<br/>health, risk"]
+    S7["Amber Life App<br/>Home, Photos, Journal,<br/>People, Insights"]
+    S8["Home Assistant<br/>Guardian Integration"]
+    S9["Amber Console<br/>operator truth + evidence"]
+  end
+
+  F1 --> AB
+  F2 --> AB
+  F3 --> AB
+  F4 --> AB
+  F5 --> AB
+  F6 --> LSB
+  F7 --> LSB
+  F8 --> LSB
+  F9 --> CON
+  F10 --> CON
+
+  LSB --> AB
+  CON --> AB
+  AB --> VID
+  CON --> OCR
+
+  VID --> Intake
+  VID --> Ledger
+  VEL --> Ledger
+  VP --> Correlator
+  OCR --> Ledger
+  OCR --> Correlator
+
+  Intake --> Ledger
+  Ledger --> Identity
+  Ledger --> Work
+  Identity --> Correlator
+  Work --> Correlator
+  Correlator --> Formation
+  Formation --> Store
+
+  Ledger --> S1
+  Ledger --> S2
+  Ledger --> S3
+  Ledger --> S4
+  Work --> S5
+  Correlator --> S6
+  Store --> S7
+  Store --> S8
+  Store --> S9
+
+  S1 -. "results / enrichment" .-> Ledger
+  S2 -. "results / enrichment" .-> Ledger
+  S3 -. "results / enrichment" .-> Ledger

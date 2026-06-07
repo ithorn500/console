@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amber Architecture Docs</title>
+    <link rel="stylesheet" href="architecture-site.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Architecture navigation">
+        <div class="brand">
+          <div>
+            <p class="eyebrow">AIGateway</p>
+            <h1>Architecture Docs</h1>
+          </div>
+          <span class="status-pill current">2026-06-05</span>
+        </div>
+
+        <label class="search">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Filter docs and diagrams" />
+        </label>
+
+        <nav class="nav-tabs" aria-label="Views">
+          <button class="tab-button active" data-view="docs" type="button">Docs</button>
+          <button class="tab-button" data-view="diagrams" type="button">Diagrams</button>
+          <button class="tab-button" data-view="review" type="button">Review</button>
+        </nav>
+
+        <div id="navList" class="nav-list"></div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <p id="contentKicker" class="eyebrow">Current Review</p>
+            <h2 id="contentTitle">Architecture Diagram Review</h2>
+          </div>
+          <div class="toolbar">
+            <a id="rawLink" class="tool-link" href="architecture-diagram-review-2026-06-05.md">Raw file</a>
+          </div>
+        </header>
+
+        <section id="overview" class="overview" aria-label="Architecture overview"></section>
+        <article id="reader" class="reader" aria-live="polite"></article>
+      </main>
+    </div>
+
+    <script src="architecture-site-data.js"></script>
+    <script src="architecture-site.js"></script>
+  </body>
+</html>

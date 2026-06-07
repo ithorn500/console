@@ -1,0 +1,18 @@
+flowchart TB
+  ObjectInput["Frame sample"] --> ObjectYOLO["object classifier\ncar · dog · bird · robot mower"]
+  ObjectYOLO --> ObjectTrack["object track/static state"]
+  ObjectTrack --> ObjectPack["object training pack"]
+
+  PersonInput["Frame sample"] --> PersonDetect["person detector"]
+  PersonDetect --> FaceDetect["face detector/cropper"]
+  FaceDetect --> FaceQuality["training-grade quality gate"]
+  FaceQuality --> FaceID["face recognition"]
+
+  AudioInput["Audio sample"] --> SpeechWake["wake/speech detection"]
+  SpeechWake --> VoicePrint["voice print recognition"]
+
+  FaceID --> Profile["stable profile\nperson/object/voice links"]
+  VoicePrint --> Profile
+  ObjectPack --> Profile
+  Profile --> Memory["RAG / Mem0 / Qdrant"]
+  Profile --> Guardian["Guardian policy/action context"]

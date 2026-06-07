@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant Operator
+  participant MediaUI as Veliai Media UI
+  participant Review as Review Store
+  participant Packs as Training Packs
+  participant Learning as Veliai-learning
+  participant Data as /Data/Veliai
+  participant Gate as Validation Gate
+  participant Live as Live Model
+
+  Operator->>MediaUI: confirm/correct detection
+  MediaUI->>Review: mark seen / false positive / train as
+  Review->>Packs: append labelled sample
+  Learning->>Packs: nightly read approved samples
+  Learning->>Data: export dataset + manifest
+  Learning->>Gate: validate candidate model or memory repair
+  Gate-->>Live: promote only after metrics/approval

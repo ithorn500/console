@@ -1,0 +1,417 @@
+{
+  "generatedAt": "static-console-publish-from-aigateway-docs",
+  "docs": [
+    {
+      "id": "auto-doc-accelerator-architecture",
+      "title": "Accelerator Architecture",
+      "file": "accelerator-architecture.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-full-r1-implementation",
+      "title": "Amber Life Full R1 Implementation",
+      "file": "amber-life-full-r1-implementation.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-ios-app",
+      "title": "Amber Life Ios App",
+      "file": "amber-life-ios-app.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-journal-app",
+      "title": "Amber Life Journal App",
+      "file": "amber-life-journal-app.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-macos-app",
+      "title": "Amber Life Macos App",
+      "file": "amber-life-macos-app.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-r1-implementation-contract",
+      "title": "Amber Life R1 Implementation Contract",
+      "file": "amber-life-r1-implementation-contract.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-style-guide",
+      "title": "Amber Life Style Guide",
+      "file": "amber-life-style-guide.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-life-windows-app",
+      "title": "Amber Life Windows App",
+      "file": "amber-life-windows-app.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-network-command-architecture-2026-05-13",
+      "title": "Amber Network Command Architecture 2026 05 13",
+      "file": "amber-network-command-architecture-2026-05-13.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-amber-network-command-architecture-v2-2026-05-15",
+      "title": "Amber Network Command Architecture V2 2026 05 15",
+      "file": "amber-network-command-architecture-v2-2026-05-15.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-architecture-diagram-review-2026-06-05",
+      "title": "Architecture Diagram Review 2026 06 05",
+      "file": "architecture-diagram-review-2026-06-05.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-gateway-monolith",
+      "title": "Gateway Monolith",
+      "file": "gateway-monolith.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-gemma-guardian-memorr-memory-boundary",
+      "title": "Gemma Guardian Memorr Memory Boundary",
+      "file": "gemma-guardian-memorr-memory-boundary.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-life-evidence-memory-fabric-architecture-2026-06-05",
+      "title": "Life Evidence Memory Fabric Architecture 2026 06 05",
+      "file": "life-evidence-memory-fabric-architecture-2026-06-05.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-memory-model",
+      "title": "Memory Model",
+      "file": "memory-model.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-shared-memory-mutation-schema-and-namespace-contract",
+      "title": "Shared Memory Mutation Schema And Namespace Contract",
+      "file": "shared-memory-mutation-schema-and-namespace-contract.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-velia-grid-technical-spec",
+      "title": "Velia Grid Technical Spec",
+      "file": "velia-grid-technical-spec.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-client-brain-edge",
+      "title": "Veliai Client Brain Edge",
+      "file": "veliai-client-brain-edge.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-compute-and-velia-grid",
+      "title": "Veliai Compute And Velia Grid",
+      "file": "veliai-compute-and-velia-grid.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-glossary",
+      "title": "Veliai Glossary",
+      "file": "veliai-glossary.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-learning",
+      "title": "Veliai Learning",
+      "file": "veliai-learning.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-media",
+      "title": "Veliai Media",
+      "file": "veliai-media.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    },
+    {
+      "id": "auto-doc-veliai-system-map",
+      "title": "Veliai System Map",
+      "file": "veliai-system-map.md",
+      "group": "Auto-Discovered",
+      "state": "New",
+      "authority": "Unclassified",
+      "summary": "Auto-discovered Markdown document in docs/architecture."
+    }
+  ],
+  "diagrams": [
+    {
+      "title": "Auto-discovered Architecture Diagram",
+      "file": "2039db7a-1857-4fd3-b56e-f05610935024.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Architecture",
+      "file": "Amber Architecture.jpg",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Velia Architecture",
+      "file": "Velia Architecture.jpg",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Actorr Velox Architecture",
+      "file": "actorr-velox-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Bus Architecture",
+      "file": "amber-bus-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Gemma Guardian Memory Routes Architecture",
+      "file": "gemma-guardian-memory-routes-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Command Architecture V2 2026 05 15",
+      "file": "generated/2026-06-05/amber-network-command-architecture-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Command View Previous 2026 05 13",
+      "file": "generated/2026-06-05/amber-network-command-view-previous-2026-05-13.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Live Runtime Flow V2 2026 05 15",
+      "file": "generated/2026-06-05/amber-network-live-runtime-flow-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Optimisation Map V2 2026 05 15",
+      "file": "generated/2026-06-05/amber-network-optimisation-map-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Runtime Demand Previous 2026 05 13",
+      "file": "generated/2026-06-05/amber-network-runtime-demand-previous-2026-05-13.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Amber Network Service Ownership V2 2026 05 15",
+      "file": "generated/2026-06-05/amber-network-service-ownership-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Gateway Monolith Current 2026 06 05",
+      "file": "generated/2026-06-05/gateway-monolith-current-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Gateway Monolith Runtime V2 2026 05 15",
+      "file": "generated/2026-06-05/gateway-monolith-runtime-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Life Evidence Memory Fabric 2026 06 05",
+      "file": "generated/2026-06-05/life-evidence-memory-fabric-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Ollama Cloud Model Catalog V2 2026 05 15",
+      "file": "generated/2026-06-05/ollama-cloud-model-catalog-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Portfolio System Map V2 2026 05 15",
+      "file": "generated/2026-06-05/veliai-portfolio-system-map-v2-2026-05-15.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai System Map Learning Loop 2026 06 05",
+      "file": "generated/2026-06-05/veliai-system-map-learning-loop-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai System Map Media Dataflow 2026 06 05",
+      "file": "generated/2026-06-05/veliai-system-map-media-dataflow-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai System Map Modules 2026 06 05",
+      "file": "generated/2026-06-05/veliai-system-map-modules-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai System Map Recognition Paths 2026 06 05",
+      "file": "generated/2026-06-05/veliai-system-map-recognition-paths-2026-06-05.png",
+      "type": "Image",
+      "state": "Generated",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Guardian Architecture",
+      "file": "guardian-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Home Assistant Guardian Edge Architecture",
+      "file": "home-assistant-guardian-edge-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Signalscope Logger Architecture",
+      "file": "signalscope-logger-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Gemma Guardian Memory Architecture",
+      "file": "veliai-gemma-guardian-memory-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Intelligence Architecture",
+      "file": "veliai-intelligence-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Learning Architecture",
+      "file": "veliai-learning-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Manager Control Plane Architecture",
+      "file": "veliai-manager-control-plane-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    },
+    {
+      "title": "Veliai Media Architecture",
+      "file": "veliai-media-architecture.png",
+      "type": "Image",
+      "state": "New",
+      "summary": "Auto-discovered architecture image. Review and classify if it becomes authoritative."
+    }
+  ]
+}
