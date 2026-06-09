@@ -222,6 +222,32 @@
       "panel": "evidence_chain"
     },
     {
+      "id": "concierge_proxmox_backup",
+      "label": "Concierge Proxmox Backup",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/bus/concierge/proxmox-backup/status",
+      "transport": "bus_get",
+      "panel": "concierge"
+    },
+    {
+      "id": "concierge_proxmox_backup_schedules",
+      "label": "Concierge Backup Schedules",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/bus/concierge/proxmox-backup/schedules",
+      "transport": "bus_post",
+      "overview_mode": "deferred",
+      "panel": "concierge"
+    },
+    {
+      "id": "concierge_proxmox_backup_actions",
+      "label": "Concierge Backup Restore Actions",
+      "owner": "amber-bus-concierge",
+      "url": "http://amber-bus.amber.com:8080/api/bus/concierge/proxmox-backup/actions",
+      "transport": "bus_post",
+      "overview_mode": "deferred",
+      "panel": "concierge"
+    },
+    {
       "id": "concierge_mime_parity",
       "label": "Concierge MIME Parity",
       "owner": "amber-bus-concierge",

@@ -8,6 +8,7 @@ import { AdGuardPerimeterPanel } from './panels/AdGuardPerimeterPanel';
 import { AmberBusSpinePanel } from './panels/AmberBusSpinePanel';
 import { AmberLiveMap } from './panels/AmberLiveMap';
 import { AmberTopology } from './panels/AmberTopology';
+import { ConciergeBackupPanel } from './panels/ConciergeBackupPanel';
 import { ConsoleStreamProofPanel } from './panels/ConsoleStreamProofPanel';
 import { EvidenceChain } from './panels/EvidenceChain';
 import { E31NativeSpinePanel } from './panels/E31NativeSpinePanel';
@@ -34,6 +35,7 @@ import { VeliaiRouterMap } from './panels/VeliaiRouterMap';
 import type { ConsoleOverview, EvidenceChain as EvidenceChainData, SourceDetail } from './types';
 
 export function App() {
+  const [view, setView] = useState(() => window.location.hash === '#backup' ? 'backup' : 'home');
   const [refreshState, setRefreshState] = useState('loading');
   const [overview, setOverview] = useState<ConsoleOverview | null>(null);
   const [chain, setChain] = useState<EvidenceChainData | null>(null);
@@ -82,6 +84,12 @@ export function App() {
     return () => window.clearInterval(timer);
   }, [refresh]);
 
+  useEffect(() => {
+    const onHashChange = () => setView(window.location.hash === '#backup' ? 'backup' : 'home');
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
   return (
     <>
       <main className="shell">
@@ -92,6 +100,7 @@ export function App() {
           </div>
           <div className="statusbar">
             <span>{refreshState}</span>
+            <a className="topbar-link" href="#backup">Backup</a>
             <a className="topbar-link" href="/architecture/#diagrams">Architecture</a>
             <button type="button" onClick={() => refresh().catch(err => setRefreshState(String(err)))}>Refresh</button>
           </div>
@@ -103,41 +112,50 @@ export function App() {
           <span>{overview?.summary.ok ?? '--'} live / {overview?.summary.degraded_or_unavailable ?? '--'} degraded</span>
         </section>
 
-        <SurfaceDirectory />
+        {view === 'backup' ? (
+          <section className="backup-dedicated-workspace">
+            <ConciergeBackupPanel onOpen={openDetail} />
+          </section>
+        ) : (
+          <>
+            <SurfaceDirectory />
 
-        <HeroGrid overview={overview} onOpen={openDetail} />
+            <HeroGrid overview={overview} onOpen={openDetail} />
 
-        <section className="ops-workspace">
-          <AmberLiveMap onOpen={openDetail} />
-          <AmberBusSpinePanel onOpen={openDetail} />
-          <div className="workspace">
-            <AmberTopology overview={overview} onOpen={openDetail} />
-            <GuardianGemmaPanel overview={overview} onOpen={openDetail} />
-          </div>
-          <OwnerPanelParityPanel onOpen={openDetail} />
-          <OwnerActionReadinessPanel onOpen={openDetail} />
-          <OwnerRetirementReadinessPanel overview={overview} onOpen={openDetail} />
-          <PromotionReadinessPanel overview={overview} onOpen={openDetail} />
-          <E31NativeSpinePanel overview={overview} onOpen={openDetail} />
-          <GuardianC2SnapshotPanel onOpen={openDetail} />
-          <GuardianC2DrilldownPanel onOpen={openDetail} />
-          <GuardianStrategyPanel onOpen={openDetail} />
-          <HomeAssistantEvidencePanel onOpen={openDetail} />
-          <AdGuardPerimeterPanel onOpen={openDetail} />
-          <GemmaOpsMirrorPanel onOpen={openDetail} />
-          <GuardianLawnPanel onOpen={openDetail} />
-          <ActorrOpsPanel onOpen={openDetail} />
-          <ActorrMediaPipelinePanel onOpen={openDetail} />
-          <LoggerEvidencePanel onOpen={openDetail} />
-          <MemoryConciergeLoop />
-          <NeuFabFabricPanel onOpen={openDetail} />
-          <VeliaiRouterMap onOpen={openDetail} />
-          <MemorrLifeFlow onOpen={openDetail} />
-          <EvidenceChain chain={chain} onOpen={openDetail} />
-          <SourceReliabilityPanel overview={overview} onOpen={openDetail} />
-          <ConsoleStreamProofPanel />
-          <SourceGrid overview={overview} onOpen={openDetail} />
-        </section>
+            <section className="ops-workspace">
+              <AmberLiveMap onOpen={openDetail} />
+              <AmberBusSpinePanel onOpen={openDetail} />
+              <div className="workspace">
+                <AmberTopology overview={overview} onOpen={openDetail} />
+                <GuardianGemmaPanel overview={overview} onOpen={openDetail} />
+              </div>
+              <OwnerPanelParityPanel onOpen={openDetail} />
+              <OwnerActionReadinessPanel onOpen={openDetail} />
+              <OwnerRetirementReadinessPanel overview={overview} onOpen={openDetail} />
+              <PromotionReadinessPanel overview={overview} onOpen={openDetail} />
+              <E31NativeSpinePanel overview={overview} onOpen={openDetail} />
+              <GuardianC2SnapshotPanel onOpen={openDetail} />
+              <GuardianC2DrilldownPanel onOpen={openDetail} />
+              <GuardianStrategyPanel onOpen={openDetail} />
+              <HomeAssistantEvidencePanel onOpen={openDetail} />
+              <AdGuardPerimeterPanel onOpen={openDetail} />
+              <GemmaOpsMirrorPanel onOpen={openDetail} />
+              <GuardianLawnPanel onOpen={openDetail} />
+              <ActorrOpsPanel onOpen={openDetail} />
+              <ActorrMediaPipelinePanel onOpen={openDetail} />
+              <LoggerEvidencePanel onOpen={openDetail} />
+              <ConciergeBackupPanel onOpen={openDetail} />
+              <MemoryConciergeLoop />
+              <NeuFabFabricPanel onOpen={openDetail} />
+              <VeliaiRouterMap onOpen={openDetail} />
+              <MemorrLifeFlow onOpen={openDetail} />
+              <EvidenceChain chain={chain} onOpen={openDetail} />
+              <SourceReliabilityPanel overview={overview} onOpen={openDetail} />
+              <ConsoleStreamProofPanel />
+              <SourceGrid overview={overview} onOpen={openDetail} />
+            </section>
+          </>
+        )}
       </main>
 
       <EvidenceDrawer

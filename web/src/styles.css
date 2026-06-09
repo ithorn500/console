@@ -994,6 +994,471 @@ h3 { font-size: 15px; }
   color: var(--text);
   font-size: 20px;
 }
+.concierge-backup-panel {
+  min-height: 520px;
+}
+.backup-headline,
+.backup-strip,
+.backup-grid,
+.backup-chain,
+.backup-metrics,
+.backup-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+.backup-headline {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.backup-headline button {
+  min-height: 118px;
+  text-align: left;
+  border-color: rgba(89, 215, 255, .3);
+  background: linear-gradient(150deg, #071722, #121524);
+}
+.backup-headline strong {
+  display: block;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.05;
+}
+.backup-headline span,
+.backup-headline small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+.backup-strip {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.backup-strip span {
+  border: 1px solid #315650;
+  border-radius: 8px;
+  background: #071017;
+  padding: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-strip b {
+  display: block;
+  color: var(--text);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.backup-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.backup-grid section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071017;
+  padding: 12px;
+  min-width: 0;
+}
+.backup-chain {
+  grid-template-columns: 1fr;
+}
+.backup-chain button {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  background: #102522;
+}
+.backup-chain span {
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(89, 215, 255, .18);
+  color: var(--cyan);
+  font-size: 12px;
+}
+.backup-chain b,
+.backup-list b,
+.backup-list span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.backup-list button {
+  display: grid;
+  grid-template-columns: auto minmax(0, .8fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  background: #102522;
+}
+.backup-list button:not(:has(.state)) {
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
+}
+.backup-list span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+.backup-manager {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071017;
+  padding: 12px;
+}
+.backup-form {
+  display: grid;
+  grid-template-columns: .5fr repeat(4, minmax(0, 1fr)) auto;
+  gap: 10px;
+  align-items: end;
+  margin-top: 12px;
+}
+.backup-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.backup-form input,
+.backup-form select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #315650;
+  border-radius: 6px;
+  background: #020810;
+  color: var(--text);
+  padding: 8px;
+  font: inherit;
+  font-size: 13px;
+  text-transform: none;
+}
+.backup-form input[type="checkbox"] {
+  width: 22px;
+  min-height: 22px;
+}
+.backup-form-wide {
+  grid-column: span 2;
+}
+.backup-manager-panel {
+  min-height: 720px;
+}
+.backup-dedicated-workspace {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+.backup-dedicated-workspace .backup-manager-panel {
+  min-height: calc(100vh - 170px);
+}
+.backup-manager-top,
+.backup-section-head,
+.backup-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.backup-command-bar {
+  display: grid;
+  grid-template-columns: repeat(4, auto) minmax(120px, .8fr) minmax(180px, 1.2fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 14px;
+}
+.backup-command-bar button,
+.backup-command-bar select,
+.backup-command-bar input,
+.backup-action-row button {
+  min-height: 38px;
+  border: 1px solid #315650;
+  border-radius: 6px;
+  background: #071017;
+  color: var(--text);
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+}
+.backup-command-bar button.active {
+  border-color: var(--cyan);
+  background: rgba(89, 215, 255, .14);
+  color: var(--cyan);
+}
+.backup-command-bar span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.backup-manager-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.backup-manager-summary section {
+  border: 1px solid #315650;
+  border-radius: 8px;
+  background: #081715;
+  padding: 12px;
+  min-width: 0;
+}
+.backup-manager-summary b {
+  display: block;
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-manager-summary span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.backup-manager-workspace {
+  display: grid;
+  grid-template-columns: minmax(360px, 1.25fr) minmax(320px, .9fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.backup-browser,
+.backup-detail,
+.backup-restore,
+.backup-scheduler {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071017;
+  padding: 12px;
+  min-width: 0;
+}
+.backup-browser {
+  grid-row: span 3;
+}
+.backup-table {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  max-height: 640px;
+  overflow: auto;
+  padding-right: 3px;
+}
+.backup-table button {
+  display: grid;
+  grid-template-columns: 60px minmax(140px, 1.2fr) 52px 52px 92px 90px;
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  border: 1px solid #213c38;
+  border-radius: 6px;
+  background: #102522;
+  color: var(--text);
+  padding: 10px;
+  min-width: 0;
+}
+.backup-table button.selected {
+  border-color: var(--cyan);
+  background: rgba(89, 215, 255, .12);
+}
+.backup-version-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.backup-version-list h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+}
+.backup-version-list button {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  border: 1px solid #213c38;
+  border-radius: 6px;
+  background: #102522;
+  color: var(--text);
+  padding: 9px 10px;
+  min-width: 0;
+}
+.backup-version-list button.selected {
+  border-color: var(--cyan);
+  background: rgba(89, 215, 255, .12);
+}
+.backup-table b,
+.backup-table span,
+.backup-version-list b,
+.backup-version-list span,
+.backup-schedule-list b,
+.backup-schedule-list span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.backup-table span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 850;
+}
+.backup-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.backup-custody-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.backup-custody-path span {
+  border: 1px solid #315650;
+  border-radius: 999px;
+  background: #081715;
+  color: var(--muted);
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 900;
+}
+.backup-restore-form,
+.backup-schedule-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.backup-restore-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.backup-schedule-form {
+  grid-template-columns: .5fr repeat(3, minmax(0, 1fr)) auto;
+}
+.backup-restore-form label,
+.backup-schedule-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.backup-restore-form input,
+.backup-restore-form select,
+.backup-schedule-form input,
+.backup-schedule-form select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid #315650;
+  border-radius: 6px;
+  background: #020810;
+  color: var(--text);
+  padding: 8px;
+  font: inherit;
+  font-size: 13px;
+  text-transform: none;
+}
+.backup-schedule-form input[type="checkbox"] {
+  width: 22px;
+  min-height: 22px;
+}
+.backup-schedule-form button {
+  min-height: 38px;
+  align-self: end;
+}
+.backup-restore-command {
+  margin-top: 12px;
+  border: 1px solid #315650;
+  border-radius: 8px;
+  background: #020810;
+  padding: 10px;
+}
+.backup-restore-command code {
+  display: block;
+  color: var(--cyan);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.backup-action-row {
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+.backup-action-row button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.backup-action-result {
+  max-height: 220px;
+  overflow: auto;
+  margin: 12px 0 0;
+  border: 1px solid #315650;
+  border-radius: 8px;
+  background: #020810;
+  color: var(--muted);
+  padding: 10px;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.backup-schedule-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+.backup-schedule-list button {
+  display: grid;
+  grid-template-columns: auto minmax(0, .9fr) minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  background: #102522;
+}
+.backup-maintenance-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.backup-maintenance-actions button {
+  min-height: 38px;
+  border: 1px solid #315650;
+  border-radius: 6px;
+  background: #071017;
+  color: var(--text);
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+}
+.backup-maintenance-actions button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.backup-empty,
+.backup-error {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
 .stream-proof-panel {
   min-height: 260px;
 }
@@ -4305,7 +4770,7 @@ h3 { font-size: 15px; }
   color: var(--text);
 }
 @media (max-width: 1180px) {
-  .hero-grid, .workspace, .chain-graph, .best-grid, .parity-rail, .action-authority-grid, .retirement-grid, .promotion-summary, .residual-blocker-ledger, .owner-contract-grid, .promotion-proof-chain-grid, .promotion-grid, .rollback-grid, .windows-handoff-grid, .e31-headline, .e31-source-grid, .reliability-headline, .reliability-grid, .bus-resilience-ledger, .reliability-panel-strip, .stream-proof-grid, .stream-proof-strip, .router-stage, .provider-grid, .route-plan-summary, .route-drift-summary, .route-drift-grid, .route-failure-grid, .route-soak-grid, .queue-governance-grid, .memory-boundary-grid, .route-plan-matrix, .action-contract-ledger, .action-handoff-grid, .life-flow, .memorr-lineage-stage, .memorr-lineage-track, .ops-metrics.compact, .loop-headline, .loop-detail-grid, .loop-evidence, .loop-source-strip, .quarantine-review-stage, .quarantine-queue, .lifecycle-drill-stage, .lifecycle-drill-track, .email-timeline-stage, .email-timeline-track, .pim-context-stage, .pim-context-grid, .pim-context-metrics, .loop-operator-grid, .data-plane-strip, .ops-radar, .neufab-metric-grid, .neufab-stage, .neufab-activity-grid, .lawn-stage, .lawn-image-contract-grid, .bus-spine-metrics, .bus-contract-strip, .bus-spine-stage, .bus-function-grid, .bus-invoke-grid, .logger-metric-grid, .logger-stream-grid, .logger-programme-grid, .logger-programme-detail, .logger-programme-detail section:first-child, .logger-emission-ledger, .logger-proof-window-grid, .logger-coverage-grid, .logger-evidence-stage, .logger-incident-tabs, .logger-proof-grid, .logger-blast-grid, .logger-correlation-strip, .actorr-metric-grid, .actorr-detail-grid, .actorr-health-strip, .guardian-c2-headline, .guardian-c2-metrics, .guardian-c2-graph, .guardian-fault-route, .guardian-fault-hints, .guardian-c2-events, .gemma-ops-headline, .gemma-lane-grid, .gemma-ops-split, .gemma-usage-strip, .topology-edge-grid, .adguard-headline, .adguard-grid, .adguard-logger-strip, .adguard-client-strip, .adguard-query-strip, .adguard-contract-strip, .perimeter-contract-grid, .ha-evidence-headline, .ha-evidence-grid, .ha-domain-strip, .ha-policy-strip, .ha-watch-list, .guardian-depth-headline, .guardian-plane-grid, .guardian-depth-split, .guardian-surface-strip, .guardian-strategy-headline, .guardian-strategy-grid, .guardian-strategy-tasks { grid-template-columns: 1fr; }
+  .hero-grid, .workspace, .chain-graph, .best-grid, .parity-rail, .action-authority-grid, .retirement-grid, .promotion-summary, .residual-blocker-ledger, .owner-contract-grid, .promotion-proof-chain-grid, .promotion-grid, .rollback-grid, .windows-handoff-grid, .e31-headline, .e31-source-grid, .reliability-headline, .reliability-grid, .bus-resilience-ledger, .reliability-panel-strip, .backup-headline, .backup-strip, .backup-grid, .backup-metrics, .backup-form, .stream-proof-grid, .stream-proof-strip, .router-stage, .provider-grid, .route-plan-summary, .route-drift-summary, .route-drift-grid, .route-failure-grid, .route-soak-grid, .queue-governance-grid, .memory-boundary-grid, .route-plan-matrix, .action-contract-ledger, .action-handoff-grid, .life-flow, .memorr-lineage-stage, .memorr-lineage-track, .ops-metrics.compact, .loop-headline, .loop-detail-grid, .loop-evidence, .loop-source-strip, .quarantine-review-stage, .quarantine-queue, .lifecycle-drill-stage, .lifecycle-drill-track, .email-timeline-stage, .email-timeline-track, .pim-context-stage, .pim-context-grid, .pim-context-metrics, .loop-operator-grid, .data-plane-strip, .ops-radar, .neufab-metric-grid, .neufab-stage, .neufab-activity-grid, .lawn-stage, .lawn-image-contract-grid, .bus-spine-metrics, .bus-contract-strip, .bus-spine-stage, .bus-function-grid, .bus-invoke-grid, .logger-metric-grid, .logger-stream-grid, .logger-programme-grid, .logger-programme-detail, .logger-programme-detail section:first-child, .logger-emission-ledger, .logger-proof-window-grid, .logger-coverage-grid, .logger-evidence-stage, .logger-incident-tabs, .logger-proof-grid, .logger-blast-grid, .logger-correlation-strip, .actorr-metric-grid, .actorr-detail-grid, .actorr-health-strip, .guardian-c2-headline, .guardian-c2-metrics, .guardian-c2-graph, .guardian-fault-route, .guardian-fault-hints, .guardian-c2-events, .gemma-ops-headline, .gemma-lane-grid, .gemma-ops-split, .gemma-usage-strip, .topology-edge-grid, .adguard-headline, .adguard-grid, .adguard-logger-strip, .adguard-client-strip, .adguard-query-strip, .adguard-contract-strip, .perimeter-contract-grid, .ha-evidence-headline, .ha-evidence-grid, .ha-domain-strip, .ha-policy-strip, .ha-watch-list, .guardian-depth-headline, .guardian-plane-grid, .guardian-depth-split, .guardian-surface-strip, .guardian-strategy-headline, .guardian-strategy-grid, .guardian-strategy-tasks { grid-template-columns: 1fr; }
   .panel, .ops-panel, .live-map-panel { max-width: 100%; min-width: 0; overflow: hidden; }
   .flow-shell, .router-flow-shell, .bus-flow-shell, .amber-live-flow { max-width: 100%; overflow: hidden; }
   .topbar, .panel-head, .drawer-head, .live-map-head, .ops-title { flex-wrap: wrap; align-items: flex-start; }
