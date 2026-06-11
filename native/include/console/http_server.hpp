@@ -10,6 +10,7 @@ struct Request {
   std::string method;
   std::string path;
   std::string query;
+  std::string body;
 };
 
 struct Response {
@@ -36,4 +37,3 @@ std::string url_decode(const std::string& value);
 std::map<std::string, std::string> parse_query(const std::string& query);
 
 }  // namespace amber::console
-

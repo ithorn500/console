@@ -20,6 +20,7 @@ import { GuardianLawnPanel } from './panels/GuardianLawnPanel';
 import { GuardianStrategyPanel } from './panels/GuardianStrategyPanel';
 import { HeroGrid } from './panels/HeroGrid';
 import { HomeAssistantEvidencePanel } from './panels/HomeAssistantEvidencePanel';
+import { IdentityCustodyPanel } from './panels/IdentityCustodyPanel';
 import { LoggerEvidencePanel } from './panels/LoggerEvidencePanel';
 import { MemoryConciergeLoop } from './panels/MemoryConciergeLoop';
 import { MemorrLifeFlow } from './panels/MemorrLifeFlow';
@@ -28,6 +29,7 @@ import { OwnerActionReadinessPanel } from './panels/OwnerActionReadinessPanel';
 import { OwnerPanelParityPanel } from './panels/OwnerPanelParityPanel';
 import { OwnerRetirementReadinessPanel } from './panels/OwnerRetirementReadinessPanel';
 import { PromotionReadinessPanel } from './panels/PromotionReadinessPanel';
+import { ProxmoxManagerPanel } from './panels/ProxmoxManagerPanel';
 import { SourceGrid } from './panels/SourceGrid';
 import { SourceReliabilityPanel } from './panels/SourceReliabilityPanel';
 import { SurfaceDirectory } from './panels/SurfaceDirectory';
@@ -35,7 +37,11 @@ import { VeliaiRouterMap } from './panels/VeliaiRouterMap';
 import type { ConsoleOverview, EvidenceChain as EvidenceChainData, SourceDetail } from './types';
 
 export function App() {
-  const [view, setView] = useState(() => window.location.hash === '#backup' ? 'backup' : 'home');
+  const [view, setView] = useState(() => {
+    if (window.location.hash === '#backup') return 'backup';
+    if (window.location.hash === '#proxmox') return 'proxmox';
+    return 'home';
+  });
   const [refreshState, setRefreshState] = useState('loading');
   const [overview, setOverview] = useState<ConsoleOverview | null>(null);
   const [chain, setChain] = useState<EvidenceChainData | null>(null);
@@ -85,7 +91,11 @@ export function App() {
   }, [refresh]);
 
   useEffect(() => {
-    const onHashChange = () => setView(window.location.hash === '#backup' ? 'backup' : 'home');
+    const onHashChange = () => {
+      if (window.location.hash === '#backup') setView('backup');
+      else if (window.location.hash === '#proxmox') setView('proxmox');
+      else setView('home');
+    };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
@@ -100,6 +110,7 @@ export function App() {
           </div>
           <div className="statusbar">
             <span>{refreshState}</span>
+            <a className="topbar-link" href="#proxmox">Proxmox</a>
             <a className="topbar-link" href="#backup">Backup</a>
             <a className="topbar-link" href="/architecture/#diagrams">Architecture</a>
             <button type="button" onClick={() => refresh().catch(err => setRefreshState(String(err)))}>Refresh</button>
@@ -115,6 +126,10 @@ export function App() {
         {view === 'backup' ? (
           <section className="backup-dedicated-workspace">
             <ConciergeBackupPanel onOpen={openDetail} />
+          </section>
+        ) : view === 'proxmox' ? (
+          <section className="backup-dedicated-workspace">
+            <ProxmoxManagerPanel onOpen={openDetail} />
           </section>
         ) : (
           <>
@@ -144,10 +159,12 @@ export function App() {
               <ActorrOpsPanel onOpen={openDetail} />
               <ActorrMediaPipelinePanel onOpen={openDetail} />
               <LoggerEvidencePanel onOpen={openDetail} />
+              <ProxmoxManagerPanel onOpen={openDetail} />
               <ConciergeBackupPanel onOpen={openDetail} />
               <MemoryConciergeLoop />
               <NeuFabFabricPanel onOpen={openDetail} />
               <VeliaiRouterMap onOpen={openDetail} />
+              <IdentityCustodyPanel onOpen={openDetail} />
               <MemorrLifeFlow onOpen={openDetail} />
               <EvidenceChain chain={chain} onOpen={openDetail} />
               <SourceReliabilityPanel overview={overview} onOpen={openDetail} />

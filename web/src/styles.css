@@ -1231,6 +1231,112 @@ h3 { font-size: 15px; }
   font-weight: 900;
   text-transform: uppercase;
 }
+.proxmox-manager-panel {
+  min-height: 560px;
+}
+.proxmox-manager-head,
+.proxmox-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.proxmox-soak-stage {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.proxmox-soak-stage section {
+  min-height: 112px;
+  border: 1px solid #2f3b4a;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(2, 4, 10, .52), rgba(8, 18, 28, .88));
+  padding: 12px;
+}
+.proxmox-soak-stage section.safe { border-color: rgba(56, 217, 150, .55); }
+.proxmox-soak-stage section.warn { border-color: rgba(240, 184, 74, .65); }
+.proxmox-soak-stage section.danger { border-color: rgba(242, 109, 109, .72); }
+.proxmox-soak-stage span,
+.proxmox-foot {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.proxmox-soak-stage b {
+  display: block;
+  margin: 8px 0 4px;
+  font-size: 24px;
+}
+.proxmox-soak-stage small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+.proxmox-manager-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, .7fr) minmax(260px, .95fr) minmax(360px, 1.4fr);
+  gap: 12px;
+}
+.proxmox-metrics,
+.proxmox-contract-ledger,
+.proxmox-risk-list {
+  min-width: 0;
+  border: 1px solid #253447;
+  border-radius: 8px;
+  background: rgba(2, 4, 10, .36);
+  padding: 12px;
+}
+.proxmox-metrics,
+.proxmox-contract-ledger,
+.proxmox-risk-list {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.proxmox-contract-ledger button,
+.proxmox-risk-list button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  min-height: 74px;
+  text-align: left;
+  background: #08131f;
+}
+.proxmox-contract-ledger button.ok { border-color: rgba(56, 217, 150, .5); }
+.proxmox-contract-ledger button.warn { border-color: rgba(240, 184, 74, .65); }
+.proxmox-contract-ledger b,
+.proxmox-risk-list b {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.proxmox-contract-ledger span,
+.proxmox-risk-list span,
+.proxmox-risk-list small {
+  min-width: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.proxmox-contract-ledger span {
+  grid-column: 1 / -1;
+}
+.proxmox-risk-list .state {
+  align-self: start;
+}
+.proxmox-risk-list span,
+.proxmox-risk-list small {
+  grid-column: 2;
+}
+.proxmox-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.proxmox-foot span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
 .backup-manager-workspace {
   display: grid;
   grid-template-columns: minmax(360px, 1.25fr) minmax(320px, .9fr);
@@ -4769,8 +4875,147 @@ h3 { font-size: 15px; }
 .guardian-strategy-tasks strong {
   color: var(--text);
 }
+.identity-custody-panel {
+  min-height: 520px;
+}
+.identity-custody-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.identity-custody-actions button,
+.identity-custody-headline button,
+.identity-custody-status-strip button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #08131a;
+  color: var(--text);
+  cursor: pointer;
+}
+.identity-custody-actions button {
+  padding: 8px 12px;
+}
+.identity-custody-actions button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+.identity-custody-headline,
+.identity-custody-grid,
+.identity-custody-status-strip,
+.identity-custody-ledger {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+.identity-custody-headline {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.identity-custody-headline button,
+.identity-custody-status-strip button {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  text-align: left;
+}
+.identity-custody-headline strong,
+.identity-custody-status-strip strong {
+  color: var(--text);
+  font-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.identity-custody-headline span,
+.identity-custody-status-strip span {
+  color: var(--muted);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.identity-custody-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.identity-custody-grid section,
+.identity-custody-ledger section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #070d14;
+  padding: 12px;
+}
+.identity-custody-grid h3,
+.identity-custody-ledger h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 14px;
+}
+.identity-custody-grid dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.identity-custody-grid dl div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+.identity-custody-grid dt,
+.identity-custody-ledger p {
+  margin: 0;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.identity-custody-grid dd {
+  margin: 0;
+  color: var(--text);
+  font-weight: 800;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.identity-custody-status-strip {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.identity-custody-status-strip button.ok {
+  border-color: rgba(46, 213, 115, 0.45);
+}
+.identity-custody-status-strip button.warn {
+  border-color: rgba(245, 176, 65, 0.55);
+}
+.identity-custody-status-strip button.hot {
+  border-color: rgba(255, 99, 99, 0.65);
+}
+.identity-custody-ledger {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.identity-custody-warning-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.identity-custody-warning-strip span {
+  border: 1px solid rgba(245, 176, 65, 0.45);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(245, 176, 65, 0.1);
+  padding: 6px 10px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.identity-custody-warning-strip span.hot {
+  border-color: rgba(255, 99, 99, 0.65);
+  background: rgba(255, 99, 99, 0.12);
+}
 @media (max-width: 1180px) {
-  .hero-grid, .workspace, .chain-graph, .best-grid, .parity-rail, .action-authority-grid, .retirement-grid, .promotion-summary, .residual-blocker-ledger, .owner-contract-grid, .promotion-proof-chain-grid, .promotion-grid, .rollback-grid, .windows-handoff-grid, .e31-headline, .e31-source-grid, .reliability-headline, .reliability-grid, .bus-resilience-ledger, .reliability-panel-strip, .backup-headline, .backup-strip, .backup-grid, .backup-metrics, .backup-form, .stream-proof-grid, .stream-proof-strip, .router-stage, .provider-grid, .route-plan-summary, .route-drift-summary, .route-drift-grid, .route-failure-grid, .route-soak-grid, .queue-governance-grid, .memory-boundary-grid, .route-plan-matrix, .action-contract-ledger, .action-handoff-grid, .life-flow, .memorr-lineage-stage, .memorr-lineage-track, .ops-metrics.compact, .loop-headline, .loop-detail-grid, .loop-evidence, .loop-source-strip, .quarantine-review-stage, .quarantine-queue, .lifecycle-drill-stage, .lifecycle-drill-track, .email-timeline-stage, .email-timeline-track, .pim-context-stage, .pim-context-grid, .pim-context-metrics, .loop-operator-grid, .data-plane-strip, .ops-radar, .neufab-metric-grid, .neufab-stage, .neufab-activity-grid, .lawn-stage, .lawn-image-contract-grid, .bus-spine-metrics, .bus-contract-strip, .bus-spine-stage, .bus-function-grid, .bus-invoke-grid, .logger-metric-grid, .logger-stream-grid, .logger-programme-grid, .logger-programme-detail, .logger-programme-detail section:first-child, .logger-emission-ledger, .logger-proof-window-grid, .logger-coverage-grid, .logger-evidence-stage, .logger-incident-tabs, .logger-proof-grid, .logger-blast-grid, .logger-correlation-strip, .actorr-metric-grid, .actorr-detail-grid, .actorr-health-strip, .guardian-c2-headline, .guardian-c2-metrics, .guardian-c2-graph, .guardian-fault-route, .guardian-fault-hints, .guardian-c2-events, .gemma-ops-headline, .gemma-lane-grid, .gemma-ops-split, .gemma-usage-strip, .topology-edge-grid, .adguard-headline, .adguard-grid, .adguard-logger-strip, .adguard-client-strip, .adguard-query-strip, .adguard-contract-strip, .perimeter-contract-grid, .ha-evidence-headline, .ha-evidence-grid, .ha-domain-strip, .ha-policy-strip, .ha-watch-list, .guardian-depth-headline, .guardian-plane-grid, .guardian-depth-split, .guardian-surface-strip, .guardian-strategy-headline, .guardian-strategy-grid, .guardian-strategy-tasks { grid-template-columns: 1fr; }
+  .hero-grid, .workspace, .chain-graph, .best-grid, .parity-rail, .action-authority-grid, .retirement-grid, .promotion-summary, .residual-blocker-ledger, .owner-contract-grid, .promotion-proof-chain-grid, .promotion-grid, .rollback-grid, .windows-handoff-grid, .e31-headline, .e31-source-grid, .reliability-headline, .reliability-grid, .bus-resilience-ledger, .reliability-panel-strip, .backup-headline, .backup-strip, .backup-grid, .backup-metrics, .backup-form, .proxmox-soak-stage, .proxmox-manager-grid, .stream-proof-grid, .stream-proof-strip, .router-stage, .provider-grid, .route-plan-summary, .route-drift-summary, .route-drift-grid, .route-failure-grid, .route-soak-grid, .queue-governance-grid, .memory-boundary-grid, .route-plan-matrix, .action-contract-ledger, .action-handoff-grid, .life-flow, .memorr-lineage-stage, .memorr-lineage-track, .ops-metrics.compact, .loop-headline, .loop-detail-grid, .loop-evidence, .loop-source-strip, .quarantine-review-stage, .quarantine-queue, .lifecycle-drill-stage, .lifecycle-drill-track, .email-timeline-stage, .email-timeline-track, .pim-context-stage, .pim-context-grid, .pim-context-metrics, .loop-operator-grid, .data-plane-strip, .ops-radar, .neufab-metric-grid, .neufab-stage, .neufab-activity-grid, .lawn-stage, .lawn-image-contract-grid, .bus-spine-metrics, .bus-contract-strip, .bus-spine-stage, .bus-function-grid, .bus-invoke-grid, .logger-metric-grid, .logger-stream-grid, .logger-programme-grid, .logger-programme-detail, .logger-programme-detail section:first-child, .logger-emission-ledger, .logger-proof-window-grid, .logger-coverage-grid, .logger-evidence-stage, .logger-incident-tabs, .logger-proof-grid, .logger-blast-grid, .logger-correlation-strip, .actorr-metric-grid, .actorr-detail-grid, .actorr-health-strip, .guardian-c2-headline, .guardian-c2-metrics, .guardian-c2-graph, .guardian-fault-route, .guardian-fault-hints, .guardian-c2-events, .gemma-ops-headline, .gemma-lane-grid, .gemma-ops-split, .gemma-usage-strip, .topology-edge-grid, .adguard-headline, .adguard-grid, .adguard-logger-strip, .adguard-client-strip, .adguard-query-strip, .adguard-contract-strip, .perimeter-contract-grid, .ha-evidence-headline, .ha-evidence-grid, .ha-domain-strip, .ha-policy-strip, .ha-watch-list, .guardian-depth-headline, .guardian-plane-grid, .guardian-depth-split, .guardian-surface-strip, .guardian-strategy-headline, .guardian-strategy-grid, .guardian-strategy-tasks, .identity-custody-headline, .identity-custody-grid, .identity-custody-status-strip, .identity-custody-ledger { grid-template-columns: 1fr; }
   .panel, .ops-panel, .live-map-panel { max-width: 100%; min-width: 0; overflow: hidden; }
   .flow-shell, .router-flow-shell, .bus-flow-shell, .amber-live-flow { max-width: 100%; overflow: hidden; }
   .topbar, .panel-head, .drawer-head, .live-map-head, .ops-title { flex-wrap: wrap; align-items: flex-start; }

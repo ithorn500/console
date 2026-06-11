@@ -1,0 +1,16 @@
+[Unit]
+Description=Guardian public landing and privacy site
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/console
+ExecStart=/usr/bin/node /opt/console/scripts/serve-public-site.mjs /opt/console/public-site
+Restart=on-failure
+RestartSec=3
+Environment=PUBLIC_SITE_HOST=0.0.0.0
+Environment=PUBLIC_SITE_PORT=9000
+
+[Install]
+WantedBy=multi-user.target

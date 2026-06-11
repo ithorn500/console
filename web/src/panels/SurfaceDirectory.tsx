@@ -133,7 +133,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Static HTML + aiohttp',
     route: 'guardian.amber.com/app/guardian_c2_deck_page',
-    source: '/mnt/guardian/src/www/guardian_c2_deck_v3.html',
+    source: '/opt/guardian/src/www/guardian_c2_deck_v3.html',
     description: 'Main home-control command deck for policy state, device management, HA telemetry, apps, evidence, logs, and safe actions.'
   },
   {
@@ -144,7 +144,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Static HTML + aiohttp',
     route: 'guardian.amber.com/app/guardian_wallpanel_page',
-    source: '/mnt/guardian/src/www/guardian_wallpanel.html',
+    source: '/opt/guardian/src/www/guardian_wallpanel.html',
     description: 'Wallpanel/kiosk view for Guardian state, device-management visibility, house status, and tablet-facing operator surfaces.'
   },
   {
@@ -155,7 +155,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Static HTML + aiohttp',
     route: 'guardian.amber.com/app/guardian_c2_auth_page',
-    source: '/mnt/guardian/src/www/guardian_c2_auth_landing.html',
+    source: '/opt/guardian/src/www/guardian_c2_auth_landing.html',
     description: 'Operator authentication landing and gate for Guardian C2 access.'
   },
   {
@@ -166,7 +166,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Static artifact page',
     route: 'guardian.amber.com/install',
-    source: '/mnt/guardian/src/www/guardian-tablet',
+    source: '/opt/guardian/src/www/guardian-tablet',
     description: 'First-time Android Guardian tablet install and update artifact page backed by the stable manifest and latest release APK.'
   },
   {
@@ -176,7 +176,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: 'React + Vite',
     route: 'source only',
-    source: '/mnt/guardian/ha-dashboard-replica',
+    source: '/opt/guardian/ha-dashboard-replica',
     description: 'Experimental HA-like dashboard replica that uses Guardian frontend WebSocket paths when run from its owner environment.'
   },
   {
@@ -186,7 +186,7 @@ const surfaces: Surface[] = [
     status: 'offline',
     tech: 'Static HTML + native C++ edge',
     route: ':8080/ui',
-    source: '/mnt/amber-bus/web/index.html',
+    source: '/opt/amber-bus/web/index.html',
     description: 'Bus topology, route, traffic, panel, audit, registration, and live ops map surface. Current read-only probe returned 404.'
   },
   {
@@ -196,18 +196,18 @@ const surfaces: Surface[] = [
     status: 'offline',
     tech: 'Static HTML + JS',
     route: ':8080/static/management.html',
-    source: '/mnt/amber-bus/web/management.html',
+    source: '/opt/amber-bus/web/management.html',
     description: 'Management UI for apps, route health, traffic, panels, drilldowns, and registration. Source is present; route probe returned 404.'
   },
   {
     owner: 'Amber Bus',
     title: 'Concierge Surface',
-    url: 'http://amber-bus.amber.com:8080/static/concierge.html',
-    status: 'offline',
+    url: 'http://amber-bus.amber.com:8080/ui/concierge',
+    status: 'live',
     tech: 'Static HTML + JS',
-    route: ':8080/static/concierge.html',
-    source: '/mnt/amber-bus/web/concierge.html',
-    description: 'Concierge panel for email, VPN posture, iCloud photo sync, LSB, Life, and Memorr route evidence through Bus-owned summaries.'
+    route: ':8080/ui/concierge',
+    source: '/opt/amber-bus/web/concierge.html',
+    description: 'Concierge command surface for email, internet/VPN posture, Google Drive and iCloud, Proxmox backup custody, bare-metal restore readiness, LSB, AI queue, Amber Life, and diagnostics through Bus-owned summaries.'
   },
   {
     owner: 'Logger',
@@ -217,7 +217,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Native C++ service + static UI',
     route: 'logger.amber.com:8055',
-    source: '/mnt/logger/app/templates/index.html',
+    source: '/opt/logger/app/templates/index.html',
     description: 'Observability dashboard for incidents, analytics, collector state, saved views, stream evidence, and command-centre summaries.'
   },
   {
@@ -228,7 +228,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Starlette + static JS',
     route: 'actorr.amber.com:80',
-    source: '/mnt/actorr/actorr/portal/http_portal.py',
+    source: '/opt/actorr/actorr/portal/http_portal.py',
     description: 'Main media actuator portal for providers, relay/live mapping, diagnostics, settings, credentials, backup, and client controls.'
   },
   {
@@ -239,7 +239,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'Starlette operator UI',
     route: 'actorr.amber.com:8081',
-    source: '/mnt/actorr/actorr/portal/operator_panel.py',
+    source: '/opt/actorr/actorr/portal/operator_panel.py',
     description: 'Standalone operator visualization that pulls portal/Velox state and routes actions through Actorr Bus functions.'
   },
   {
@@ -250,7 +250,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: 'React + Vite hosted by Starlette',
     route: 'actorr.amber.com:8082',
-    source: '/mnt/actorr/examples/velox-dashboard',
+    source: '/opt/actorr/examples/velox-dashboard',
     description: 'Graphics-heavy Velox operator dashboard for native media pipeline state, work routing, provider health, and route control.'
   },
   {
@@ -261,7 +261,7 @@ const surfaces: Surface[] = [
     status: 'product',
     tech: 'Go + React product UI',
     route: 'adguard.amber.com:80',
-    source: '/mnt/adguard',
+    source: '/opt/adguard',
     description: 'Product-native DNS/filtering admin console. Amber should integrate through connector summaries, not direct browser scraping.'
   },
   {
@@ -271,7 +271,7 @@ const surfaces: Surface[] = [
     status: 'product',
     tech: 'PHP product UI',
     route: 'runtime configured',
-    source: '/mnt/pfsense/src/usr/local/www',
+    source: '/opt/pfsense/src/usr/local/www',
     description: 'Product-native firewall/router GUI for status, diagnostics, rules, NAT, VPN, interfaces, and captive portal configuration.'
   },
   {
@@ -292,7 +292,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: 'React + Three.js + Vite',
     route: 'source only',
-    source: '/mnt/memorr/opt/memorr/ui/life-screen',
+    source: '/opt/memorr/ui/life-screen',
     description: 'Source-present 3D Life/management screen for the Memorr memory/storage boundary. Live public route was not found in this pass.'
   },
   {
@@ -303,7 +303,7 @@ const surfaces: Surface[] = [
     status: 'live',
     tech: '.NET Arr shell',
     route: 'mediadownloader.amber.com:80',
-    source: '/mnt/mediadownloader/mediarr/sonarr-base',
+    source: '/opt/mediadownloader/mediarr/sonarr-base',
     description: 'Productized Arr-style unified TV/movie operator UI, branded as Mediarr and extended with movie sections and integration state.'
   },
   {
@@ -313,7 +313,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: '.NET static ops shell',
     route: ':15083',
-    source: '/mnt/mediadownloader/mediarr/src/Mediarr.Api/wwwroot',
+    source: '/opt/mediadownloader/mediarr/src/Mediarr.Api/wwwroot',
     description: 'Legacy transitional setup/control shell for bounded merge work. Docs say it remains available while the Arr runtime owns port 80.'
   },
   {
@@ -323,7 +323,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: 'Sonarr frontend source',
     route: ':8989 default',
-    source: '/mnt/mediadownloader/sonarr',
+    source: '/opt/mediadownloader/sonarr',
     description: 'Mounted Sonarr source fork and compatibility reference. Live default port was not reachable from this host during read-only probing.'
   },
   {
@@ -333,7 +333,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: 'Radarr frontend source',
     route: ':7878 default',
-    source: '/mnt/mediadownloader/radarr',
+    source: '/opt/mediadownloader/radarr',
     description: 'Mounted Radarr source fork and compatibility reference for movie-domain behavior. Live default port was not reachable in this pass.'
   },
   {
@@ -343,7 +343,7 @@ const surfaces: Surface[] = [
     status: 'source',
     tech: 'SABnzbd web UI source',
     route: ':8080 default',
-    source: '/mnt/mediadownloader/sabnzbd',
+    source: '/opt/mediadownloader/sabnzbd',
     description: 'Mounted SABnzbd source fork and download-client reference. No live restart or client operation was attempted.'
   }
 ];
@@ -393,7 +393,7 @@ export function SurfaceDirectory() {
           <p className="eyebrow">Console Home</p>
           <h2>All Web Surfaces</h2>
           <p>
-            A graphical index of browser surfaces found across the mounted Amber repos. Cards link out to owners;
+            A graphical index of browser surfaces found across the /opt Amber source repos. Cards link out to owners;
             Console remains display-only and does not use these owner URLs as its data plane.
           </p>
         </div>

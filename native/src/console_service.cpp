@@ -176,6 +176,7 @@ Response ConsoleService::route(const Request& request) {
   if (request.path == "/api/console/memory-concierge-flow") return memory_concierge_flow(std::chrono::milliseconds(10000));
   if (request.path == "/api/console/mail-flow") return memory_concierge_flow(std::chrono::milliseconds(10000));
   if (request.path == "/api/console/source") return source_detail(request);
+  if (request.path == "/api/console/source-action") return source_action(request);
   if (request.path == "/architecture" || request.path == "/architecture/") return static_file("/architecture/index.html");
   return static_file(request.path == "/" ? "/index.html" : request.path);
 }
@@ -575,6 +576,50 @@ Response ConsoleService::source_detail(const Request& request) const {
   }
   out << "}";
   return {200, "application/json", out.str(), {}};
+}
+
+Response ConsoleService::source_action(const Request& request) const {
+  if (request.method != "POST") {
+    return {405, "application/json", "{\"ok\":false,\"error\":\"method_not_allowed\"}", {}};
+  }
+  auto query = parse_query(request.query);
+  auto id = query["target"];
+  auto found = endpoint_by_id_.find(id);
+  if (found == endpoint_by_id_.end()) {
+    return {404, "application/json", "{\"ok\":false,\"error\":\"unknown target\"}", {}};
+  }
+  const auto& endpoint = found->second;
+  if (endpoint.transport != "bus_post") {
+    return {403, "application/json", "{\"ok\":false,\"error\":\"target_not_write_enabled\"}", {}};
+  }
+  if (request.body.size() > 256 * 1024) {
+    return {413, "application/json", "{\"ok\":false,\"error\":\"body_too_large\"}", {}};
+  }
+  HttpResponse response = http_post_json(endpoint.url, request.body.empty() ? "{}" : request.body, std::chrono::milliseconds(9000));
+  {
+    std::lock_guard<std::mutex> lock(cache_mutex_);
+    endpoint_cache_.erase(endpoint.id);
+  }
+  std::ostringstream out;
+  out << "{\"schema\":\"amber.console.source_action_result.v1\",\"generated_at\":" << json_string(now_utc_iso())
+      << ",\"id\":" << json_string(endpoint.id)
+      << ",\"label\":" << json_string(endpoint.label)
+      << ",\"owner\":" << json_string(endpoint.owner)
+      << ",\"url\":" << json_string(endpoint.url)
+      << ",\"transport\":" << json_string(endpoint.transport)
+      << ",\"data_plane\":\"amber_bus_only\""
+      << ",\"http_status\":" << response.status
+      << ",\"ok\":" << (response.ok ? "true" : "false")
+      << ",\"duration_ms\":" << response.duration_ms
+      << ",\"error\":" << json_string(response.error)
+      << ",\"payload\":";
+  if (response.ok && likely_complete_json_payload(response.body)) {
+    out << response.body;
+  } else {
+    out << json_string(response.ok ? response.body : response.error);
+  }
+  out << "}";
+  return {response.ok ? 200 : 502, "application/json", out.str(), {}};
 }
 
 std::string ConsoleService::emit_source_fetch_logger_evidence(

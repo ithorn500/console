@@ -248,6 +248,14 @@
       "panel": "concierge"
     },
     {
+      "id": "proxmox_manager",
+      "label": "Amber Proxmox Manager",
+      "owner": "amber-bus",
+      "url": "http://amber-bus.amber.com:8080/api/bus/proxmox-manager/status",
+      "transport": "bus_get",
+      "panel": "concierge"
+    },
+    {
       "id": "concierge_mime_parity",
       "label": "Concierge MIME Parity",
       "owner": "amber-bus-concierge",
@@ -405,6 +413,30 @@
       "owner": "memorr",
       "url": "http://amber-bus.amber.com:8080/api/memorr/life/photos/veliai-id/status",
       "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_identity_custody",
+      "label": "Memorr Identity Custody",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/identity-custody/status",
+      "transport": "bus_get",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_identity_custody_replay",
+      "label": "Memorr Identity Custody Replay",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/identity-custody/replay",
+      "transport": "bus_post",
+      "panel": "memorr"
+    },
+    {
+      "id": "memorr_identity_custody_backfill",
+      "label": "Memorr Identity Custody Backfill",
+      "owner": "memorr",
+      "url": "http://amber-bus.amber.com:8080/api/memorr/identity-custody/backfill",
+      "transport": "bus_post",
       "panel": "memorr"
     },
     {

@@ -61,6 +61,7 @@ class ConsoleService {
   Response logger_request_proof_depth() const;
   Response evidence_chain() const;
   Response source_detail(const Request& request) const;
+  Response source_action(const Request& request) const;
   std::string emit_source_fetch_logger_evidence(const OwnerEndpoint& endpoint, const HttpResponse& source_response) const;
   Response static_file(const std::string& path) const;
   HttpResponse fetch_endpoint(const OwnerEndpoint& endpoint, std::chrono::milliseconds timeout) const;

@@ -6,7 +6,10 @@
 #include <unistd.h>
 
 #include <cstring>
+#include <cstdlib>
+#include <cctype>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <thread>
 
@@ -75,6 +78,26 @@ static Request parse_request_line(const std::string& raw) {
   return request;
 }
 
+static std::map<std::string, std::string> parse_headers(const std::string& raw) {
+  std::map<std::string, std::string> headers;
+  auto end = raw.find("\r\n\r\n");
+  std::string head = raw.substr(0, end == std::string::npos ? raw.size() : end);
+  std::istringstream in(head);
+  std::string line;
+  std::getline(in, line);
+  while (std::getline(in, line)) {
+    if (!line.empty() && line.back() == '\r') line.pop_back();
+    auto colon = line.find(':');
+    if (colon == std::string::npos) continue;
+    std::string key = line.substr(0, colon);
+    std::string value = line.substr(colon + 1);
+    while (!value.empty() && value.front() == ' ') value.erase(value.begin());
+    for (char& ch : key) ch = static_cast<char>(std::tolower(static_cast<unsigned char>(ch)));
+    headers[key] = value;
+  }
+  return headers;
+}
+
 int HttpServer::run() {
   int server_fd = socket(AF_INET, SOCK_STREAM, 0);
   if (server_fd < 0) {
@@ -109,7 +132,28 @@ int HttpServer::run() {
         return;
       }
       buffer[n] = 0;
-      Request request = parse_request_line(std::string(buffer));
+      std::string raw(buffer, static_cast<std::size_t>(n));
+      auto headers = parse_headers(raw);
+      std::size_t content_length = 0;
+      auto length_it = headers.find("content-length");
+      if (length_it != headers.end()) {
+        try {
+          content_length = static_cast<std::size_t>(std::stoull(length_it->second));
+        } catch (...) {
+          content_length = 0;
+        }
+      }
+      auto header_end = raw.find("\r\n\r\n");
+      while (header_end != std::string::npos && raw.size() < header_end + 4 + content_length) {
+        n = recv(client, buffer, sizeof(buffer), 0);
+        if (n <= 0) break;
+        raw.append(buffer, static_cast<std::size_t>(n));
+      }
+      Request request = parse_request_line(raw);
+      header_end = raw.find("\r\n\r\n");
+      if (header_end != std::string::npos && content_length > 0) {
+        request.body = raw.substr(header_end + 4, content_length);
+      }
       Response response = handler_(request);
       write_response(client, response);
       close(client);
